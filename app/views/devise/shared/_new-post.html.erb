@@ -1,0 +1,26 @@
+<div>
+  <%= form.label :date, '日付' %>
+  <%= form.date_field :date %>
+</div>
+<br>
+<div>
+  <%= form.label :title, 'タイトル' %>
+  <%= form.text_field :title %>
+</div>
+<br>
+<div class="form-group">
+  <%= form.label :text, '内容' %>
+  <%= form.text_area :text %>
+</div>
+<br>
+<div>
+  <%= form.label :pdf, 'ファイルを添付' %>
+</div>
+<br>
+<div class="file-group">
+  <%= form.file_field :pdf, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
+</div>
+<br>
+<div>
+  <%= form.submit '投稿する', class: 'submit-button' %>
+</div>

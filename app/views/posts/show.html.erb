@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>回覧板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <link rel="stylesheets" href="style.css">
+  </head>
+  <%= render "devise/shared/header" %>
+  <main>
+    <div id="container">
+    <div id="contents">
+    <br>
+    <div class="wrapper">
+      <% if user_signed_in? && current_user.admin? %>
+        <div class="news-link">
+          <a href="<%= new_post_path %>" >回覧板新規投稿</a>
+        </div>
+      <% end %>
+      <h2>回覧板</h2>
+      <br>
+      <div class="centered-content2">
+        <br>
+        <% if @post %>
+          <% if user_signed_in? && current_user.admin? %>
+            <h4><%= link_to '削除', "#", method: :delete, data: { confirm: '本当に削除しますか？' } %></h4>
+          <% end %>
+          <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
+          <h1><%= @post.title %></h1>
+          <h3><%= @post.text %></h3>
+          <% if @post.pdf.attached? %>
+            <% @post.pdf.each do |pdf| %>
+              <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" width="100%" height="600px">
+            <% end %>
+          <% end %>
+          <% if @post.images.attached? %>
+            <% @post.images.each do |image| %>
+              <div class="centered-content">
+                <img src="<%= rails_blob_url(image) %>" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+              </div>
+            <% end %>
+          <% end %>
+          <div class="parent-element">
+            <h4>確認スタンプ</h4>
+            <div class="stamps">
+              <button onclick="addStamp(<%= @post.id %>)">確認</button>
+              <div class="stamp-icons">
+                <% # スタンプの表示エリア %>
+                <% if current_user.admin? %> <!-- 管理人の場合 -->
+                  <% @post.stamps.each do |stamp| %>
+                    <span class="red-stamp"><%= stamp.user.last_name %></span>
+                  <% end %>
+                <% else %> <!-- 他のユーザーの場合 -->
+                  <% @post.stamps.each do |stamp| %>
+                    <% if stamp.user.present? && stamp.user.id == current_user.id %>
+                      <span class="red-stamp"><%= stamp.user.last_name %></span>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <p>投稿が見つかりません。</p>
+        <% end %>
+      </div>
+    </div>
+  </main>
+  <body>
+            <!-- JavaScriptをbodyの最後に追加 -->
+      <script>
+        function addStamp(postId) {
+          fetch('/stamps', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+            },
+            body: JSON.stringify({ stamp: { post_id: postId } }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.notice) {
+              alert(data.notice);
+              location.reload();
+            } else {
+              alert(data.alert);
+            }
+          });
+        }
+    </script>
+  </body>
+  <%= render "devise/shared/footer" %>
+</html>
+

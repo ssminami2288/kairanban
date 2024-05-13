@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>回覧板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheets" href="style.css">
+</head>
+
+<body>
+<%= render "devise/shared/header" %>
+
+<main>
+  <div id="container">
+  <div id="contents">
+  <br>
+<div class="wrapper">
+  <h2>回覧板新規投稿</h2>
+  <br>
+  <br>
+  <%= form_with model: @post, url: posts_path, local: true, html: { multipart: true, class: 'center-form' } do |form| %>
+    <div>
+      <%= form.label :date, '日付' %>
+      <%= form.date_field :date %>
+    </div>
+    <br>
+    <div>
+      <%= form.label :title, 'タイトル' %>
+      <%= form.text_field :title %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= form.label :text, '内容' %>
+      <%= form.text_area :text %>
+    </div>
+    <br>
+    <div>
+      <%= form.label :pdf, 'ファイルを添付' %>
+    </div>
+      <br>
+    <div class="file-group">
+      <%= form.file_field :pdf, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
+    </div>
+    <br>
+    <div>
+      <%= form.submit '投稿する', class: 'submit-button' %>
+    </div>
+  <% end %>
+</div>
+</main>
+</div>
+<!--/#contents-->
+
+<%= render "devise/shared/footer" %>

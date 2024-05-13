@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup/1.1.0/magnific-popup.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup/1.1.0/jquery.magnific-popup.min.js"></script>
+  <meta charset="UTF-8">
+  <link rel="stylesheets" href="style.css">
+  <link rel="stylesheet" href="/stylesheets/application.css">
+</head>
+
+<%= render "devise/shared/header" %>
+
+<main>
+  <body>
+    <div id="container">
+    <div id="contents">
+    <br>
+    <div class="wrapper">
+      <h2>お知らせ</h2>
+      <br>
+      <div class="meeting">
+        <% if current_user&.admin? %>
+          <%= form_for @meeting, url: meetings_path do |form| %>
+            <div>
+              <%= form.label :date, '次回の理事会の日程' %>
+              <%= form.date_field :date %>
+            </div>
+            <br>
+            <div>
+              <%= form.submit '設定' %>
+            </div>
+          <% end %>
+        <% end %>
+        <br>
+        <% @meeting = Meeting.last %>
+          <% if @meeting&.date.present? %>
+            次回の理事会は<%= @meeting.date.strftime('%Y年%m月%d日') %>です。
+        <% else %>
+          次回の理事会は未定です。
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="wrapper">
+      <% if user_signed_in? && current_user.admin? %>
+        <div class="news-link2">
+          <%= link_to 'お知らせ新規投稿', new_news_path %>
+        </div>
+      <% end %>
+      <div class="centered-content3">
+        <% if @news_posts.present? %>
+          <% @news_posts.each do |post| %>
+            <% if user_signed_in? && current_user.admin? %>
+              <h4><%= link_to '削除', "#", method: :delete, data: { confirm: '本当に削除しますか？' } %></h4>
+            <% end %>
+            <h3><%= post.date.strftime('%Y年%m月%d日') %></h3>
+            <h3><%= post.title %></h3>
+            <h1><%= post.text %></h1>
+            <!-- PDFファイルの表示 -->
+            <% if post.pdf.attached? %>
+              <% post.pdf.each do |pdf| %>
+                <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" width="100%" height="600px">
+              <% end %>
+            <% end %>
+            <!-- 画像ファイルの表示 -->
+            <% if post.images.attached? %>
+              <% post.images.each do |image| %>
+                <% small_variant = image.variant(resize_to_fit: [150, 150]) %> <!-- 小さめのサイズにリサイズ -->
+                <% original_url = rails_blob_url(image) %> <!-- 元の画像ファイルのURLを取得 -->
+                <!-- 小さめの画像を表示し、クリックで元の画像を表示 -->
+                <a href="<%= original_url %>" class="popup-image">
+                  <%= image_tag small_variant, alt: '画像' %>
+                </a>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>ニュースはありません。</p>
+        <% end %>
+      </div>
+    </div>
+    <script>
+          $(document).ready(function() {
+              $('.popup-image').magnificPopup({
+                  type: 'image',
+                  gallery: {
+                      enabled: true
+                  }
+              });
+          });
+      </script>
+  </body>
+</main>
+
+<!--/#contents-->
+
+<%= render "devise/shared/footer" %>
+</html>

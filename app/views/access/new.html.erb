@@ -1,0 +1,41 @@
+<!--<p>Find me in app/views/access/new.html.erb</p>-->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>初心者向けホームページテンプレート tp_beginner8</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheets" href="style.css">
+</head>
+
+<body>
+
+
+<%= render "devise/shared/header" %>
+
+<main>
+  <div id="container">
+  <div id="contents">
+  <br>
+  <div class="wrapper">
+    <h2>お問い合わせ</h2>
+    <br>
+    <div class="centered-content">
+    <br>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScH0PmGC-UlywXftR2nD04-OWfmXQdcBYbUo2M61lL4KjXBtA/viewform?embedded=true" width="640" height="686" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+    <br>
+  </div>
+</main>
+
+<!--/#contents-->
+
+<%= render "devise/shared/footer" %>
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+
+</body>
+</html>

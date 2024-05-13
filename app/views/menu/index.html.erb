@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>回覧板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheets" href="style.css">
+</head>
+
+<body>
+<%= render "devise/shared/header" %>
+
+<main>
+  <div id="container">
+  <div id="contents">
+  <br>
+  <div class="wrapper">
+    <h2>バックナンバー</h2>
+    <br>
+    <div class="backnumber">
+      <% @posts.each do |post| %>
+        <div>
+          <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
+          <div class="bh3"><%= link_to post.title, post_path(post) %></div>
+          <!-- 他の投稿内容を表示するためのコード -->
+        </div>
+        <br>
+      <% end %>
+    </div>
+  </div>
+<div class="guidance">1年経ったら自動的に削除されます。
+以前の内容が見たい方は管理人へお問い合わせください。</div>
+<br>
+</main>
+
+</div>
+<!--/#contents-->
+
+<%= render "devise/shared/footer" %>

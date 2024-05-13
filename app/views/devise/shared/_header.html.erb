@@ -1,0 +1,41 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <h1 id="logo">
+    <%= image_tag 'logo.jpeg', alt: 'Logo' %>
+  </h1>
+  <div class="container">
+    <ul class='lists-right'>
+      <li>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+                <span class="user-role">管理人</span>
+            <% else %>
+                <span class="user-name">
+                  <%= "#{current_user.last_name} #{current_user.first_name}さん" %>
+                </span>
+            <% end %>
+            <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, method: :delete %>
+          <% end %>
+          <% if user_signed_in? && current_user.admin? %>
+          <div class="news-link">
+            <a href="<%= new_post_path %>" >回覧板新規投稿</a>
+          </div>
+          <% end %>
+      </li>
+    </ul>
+  </div>
+</header>
+<div id="menubar">
+  <nav>
+    <ul>
+      <li><a href="<%= posts_path %>">ホーム</a></li>
+      <% if @posts.present? %>
+        <li><%= link_to '回覧板', post_path(@posts.first) %></li>
+      <% else %>
+        <li><%= link_to '回覧板', posts_path %></li>
+      <% end %>
+      <li><%= link_to 'バックナンバー', menu_path %></li>
+      <li><a href="<%= new_access_path %>">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</div>
