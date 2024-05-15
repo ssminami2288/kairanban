@@ -4,7 +4,7 @@ require 'mysql2'
 client = Mysql2::Client.new(
   host: "localhost",  # ホスト名
   username: "root",   # ユーザー名
-  password: "0000", # パスワード
+  password: "", # パスワード
   database: "kairanban_development"  # データベース名
 )
 
