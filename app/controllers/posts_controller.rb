@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @meeting = Meeting.new
     @posts = Post.order(created_at: :desc)
-    @news_posts = News.order(created_at: :desc)
+    @news_posts = Post.all
   end
 
   def new
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:date, :title, :text, pdf: [], images: [])
+    params.require(:post).permit(:date, :title, :text, pdfs: [], images: [])
   end
 
   def set_posts

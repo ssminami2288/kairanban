@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news_posts = News.order(created_at: :desc)
+    @news_posts = News.all
   end
 
   def show
@@ -50,6 +50,6 @@ class NewsController < ApplicationController
   end
 
   def news_params
-    params.require(:news).permit(:date, :title, :text, pdf: [], images: [])
+    params.require(:news).permit(:date, :title, :text, pdfs: [], images: [])
   end
 end

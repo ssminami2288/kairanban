@@ -20,12 +20,14 @@
     <br>
     <div class="backnumber">
       <% @posts.each do |post| %>
-        <div>
-          <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
-          <div class="bh3"><%= link_to post.title, post_path(post) %></div>
-          <!-- 他の投稿内容を表示するためのコード -->
-        </div>
-        <br>
+        <% unless post == @posts.first %>
+          <div>
+            <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
+            <div class="bh3"><%= link_to post.title, post_path(post) %></div>
+            <!-- 他の投稿内容を表示するためのコード -->
+          </div>
+          <br>
+        <% end %>
       <% end %>
     </div>
   </div>
