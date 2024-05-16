@@ -20,6 +20,5 @@ Rails.application.routes.draw do
   get '/board', to: 'posts#show', as: 'board'
   get 'menu', to: 'menu#index', as: 'menu'
   get '/menu.html', to: 'menu#index'
-  get 'stylesheets/application.css'
 
 end
