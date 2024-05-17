@@ -515,7 +515,6 @@ footer .pr {display: block;}
     margin: 0 auto; /* 水平方向は中央に配置 */
     display: block; /* ブロック要素に変更 */
 		padding-top: 20px;
-		height: 20px;
   }
 
   .line-hidden {
@@ -529,7 +528,6 @@ footer .pr {display: block;}
   .small-image {
     /* デスクトップ用のスタイル */
 		margin-left: 30px;
-		height: 20px;
   }
 
   .line-hidden {
