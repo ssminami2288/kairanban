@@ -507,8 +507,24 @@ footer .pr {display: block;}
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .small-image {
+		height: 36px;
+		width: auto;
+		align-items: center;
+		margin-top: 20px;
+  }
+}
+
+.small-image {
+  height: 36px; /* 元のサイズの半分 */
+  width: auto; /* アスペクト比を維持する */
+	margin-right: 15px;
+}
+
 .line-hidden {
   display: block; /* 初期状態では表示 */
+	text-align: right;
 }
 
 .small-image {
@@ -675,11 +691,4 @@ button {
 }
 
 
-@media only screen and (max-width: 600px) {
-  .small-image {
-		height: 36px; /* 元のサイズの半分 */
-		width: auto;
-		align-items: center;
-		margin-top: 20px;
-  }
-}
+
