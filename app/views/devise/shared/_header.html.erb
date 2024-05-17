@@ -38,7 +38,7 @@
       <% else %>
         <li><%= link_to '回覧板', posts_path %></li>
       <% end %>
-      <li><%= link_to 'バックナンバー', menu_path %></li>
+      <li><%= link_to 'バックナンバー', user_signed_in? menu_path : posts_path %></li>
       <li class="hide-on-mobile"><a href="<%= new_access_path %>">お問い合わせ</a></li>
     </ul>
   </nav>
