@@ -507,6 +507,16 @@ footer .pr {display: block;}
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .h4 {
+    /* スマートフォンの場合のリンクのスタイルをここで指定 */
+		font-size: 15px;
+		text-align: right;
+		padding-right: 10px;
+		padding-top: 7px;
+  }
+}
+
 .wrapper3 {
   background: #fafafa;
 	display: flex; /* フレックスボックスレイアウトを適用 */

@@ -13,11 +13,6 @@
     <div id="contents">
     <br>
     <div class="wrapper">
-      <% if user_signed_in? && current_user.admin? %>
-        <div class="news-link">
-          <a href="<%= new_post_path %>" >回覧板新規投稿</a>
-        </div>
-      <% end %>
       <h2>回覧板</h2>
       <br>
       <div class="centered-content2">
