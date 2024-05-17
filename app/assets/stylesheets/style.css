@@ -669,3 +669,8 @@ button {
 	padding-top: 15px;
 	font-size: 20px;
 }
+
+.small-image {
+  height: 18px; /* 元のサイズの半分 */
+  width: auto; /* アスペクト比を維持する */
+}
