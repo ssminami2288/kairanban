@@ -508,6 +508,15 @@ footer .pr {display: block;}
 }
 
 @media only screen and (max-width: 600px) {
+  .hide-on-mobile2 {
+    display: none; /* スマートフォンの場合は非表示 */
+  }
+	.container2 {
+    text-align: right; /* 右揃え */
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .h4 {
     /* スマートフォンの場合のリンクのスタイルをここで指定 */
 		font-size: 15px;
