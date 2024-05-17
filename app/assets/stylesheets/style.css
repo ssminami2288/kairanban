@@ -507,15 +507,10 @@ footer .pr {display: block;}
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .line-hidden {
-    display: none; /* スマートフォンの場合は非表示 */
-  }
+.line-hidden {
+  display: block; /* 初期状態では表示 */
+	text-align: right;
 }
-	.container2 {
-    text-align: right; /* 右揃え */
-  }
-
 
 @media only screen and (max-width: 600px) {
   .h4 {
