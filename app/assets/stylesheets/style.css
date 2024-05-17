@@ -528,7 +528,7 @@ footer .pr {display: block;}
   .small-image {
     /* デスクトップ用のスタイル */
     float: right; /* 画像を右側に配置 */
-    height: 120px; /* 画像を少し小さく */
+    height: 60px; /* 画像を少し小さく */
 		padding-bottom: 30px;
 		margin-top: -30px;
   }
