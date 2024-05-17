@@ -43,33 +43,6 @@
       </div>
     </div>
     <br>
-    <div class="wrapper">
-      <% if user_signed_in? && current_user.admin? %>
-        <div class="news-link2">
-          <%= link_to 'お知らせ新規投稿', new_news_path %>
-        </div>
-      <% end %>
-      <div class="centered-content3">
-        <% if @news.present? %>
-          <% @news.each do |news_post| %>
-            <% if user_signed_in? && current_user.admin? %>
-              <h4><%= link_to '削除', "#", method: :delete, data: { confirm: '本当に削除しますか？' } %></h4>
-            <% end %>
-            <h3><%= news_post.date.strftime('%Y年%m月%d日') %></h3>
-            <h3><%= news_post.title %></h3>
-            <h1><%= news_post.text %></h1>
-            <!-- PDFファイルの表示 -->
-            <% if news_post.pdfs.attached? %>
-              <% news_post.pdfs.each do |pdf| %>
-                <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" width="100%" height="600px">
-              <% end %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <p>ニュースはありません。</p>
-        <% end %>
-      </div>
-    </div>
   </body>
 </main>
 
