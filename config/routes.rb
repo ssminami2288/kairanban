@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get :menu, on: :collection
   end
 
+  root to: 'devise/sessions#new'
+
   resources :stamps, only: [:create]
   resources :meetings, only: [:create]
   resources :access, only: [:new, :create]
