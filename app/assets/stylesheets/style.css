@@ -512,7 +512,7 @@ footer .pr {display: block;}
 .line-hidden {
   display: block; /* 初期状態では表示 */
 	text-align: right;
-	margin-right: 30px;
+	margin-right: 10px;
 }
 
 @media only screen and (max-width: 600px) {
