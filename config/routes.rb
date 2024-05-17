@@ -8,16 +8,13 @@ Rails.application.routes.draw do
   resources :posts do
     get :menu, on: :collection
   end
-
-  root to: 'devise/sessions#new'
-
+  
   resources :stamps, only: [:create]
   resources :meetings, only: [:create]
   resources :access, only: [:new, :create]
   
   # 標準的なCRUDアクションに対してルートを自動生成
-  resources :news do
-  end
+  resources :news
   
   get '/board', to: 'posts#show', as: 'board'
   get 'menu', to: 'menu#index', as: 'menu'
