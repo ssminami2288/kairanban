@@ -562,7 +562,7 @@ footer .pr {display: block;}
 	border: 4px dashed #ccc;
 }
 
-.centered-content3, img {
+.centered-content3 {
 	text-align: center; /* 要素内のインライン要素を中央に揃える */
 	padding: 20px;
 	border: 4px dashed #ccc;
