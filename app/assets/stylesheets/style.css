@@ -504,8 +504,8 @@ footer .pr {display: block;}
 @media only screen and (max-width: 600px) {
   .hide-on-mobile {
     display: none; /* スマートフォンの場合は非表示 */
-		margin-right: 25px;
-		margin-top: 10px;
+		margin-right: 10px;
+		padding-top: 10px;
   }
 }
 
@@ -674,13 +674,13 @@ button {
 }
 
 .small-image {
-  height: 32px; /* 元のサイズの半分 */
+  height: 36px; /* 元のサイズの半分 */
   width: auto; /* アスペクト比を維持する */
 }
 
 @media only screen and (max-width: 600px) {
   .small-image {
-		height: 25px; /* 元のサイズの半分 */
+		height: 36px; /* 元のサイズの半分 */
 		width: auto;
   }
 }
