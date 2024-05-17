@@ -531,6 +531,7 @@ footer .pr {display: block;}
     height: 90px; /* 画像を少し小さく */
 		padding-bottom: 45px;
 		margin-top: -45px;
+		margin-right: 20px;
   }
 
   .line-hidden {
