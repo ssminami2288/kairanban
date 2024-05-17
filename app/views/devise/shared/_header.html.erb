@@ -1,4 +1,14 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>回覧板</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ここにサイト説明を入れます">
+  <link rel="stylesheets" href="style.css">
+</head>
 <body>
   <header class='top-page-header'>
     <h1 id="logo">
@@ -7,21 +17,21 @@
     <div class="container">
       <ul class='lists-right'>
         <li>
-            <% if user_signed_in? %>
-              <% if current_user.admin? %>
-                  <span class="user-role">管理人</span>
-              <% else %>
-                  <span class="user-name">
-                    <%= "#{current_user.last_name} #{current_user.first_name}さん" %>
-                  </span>
-              <% end %>
-              <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, method: :delete %>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <span class="user-role">管理人</span>
+            <% else %>
+              <span class="user-name">
+                <%= "#{current_user.last_name} #{current_user.first_name}さん" %>
+              </span>
             <% end %>
-            <% if user_signed_in? && current_user.admin? %>
+            <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, method: :delete %>
+          <% end %>
+          <% if user_signed_in? && current_user.admin? %>
             <div class="news-link">
               <a href="<%= new_post_path %>" >回覧板新規投稿</a>
             </div>
-            <% end %>
+          <% end %>
         </li>
       </ul>
     </div>
@@ -53,6 +63,8 @@
       </ul>
     </nav>
   </div>
+
+  <!-- JavaScriptをbodyの最後に追加 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -66,3 +78,4 @@
     });
   </script>
 </body>
+</html>
