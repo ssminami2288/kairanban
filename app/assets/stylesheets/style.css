@@ -504,14 +504,16 @@ footer .pr {display: block;}
 @media only screen and (max-width: 600px) {
   .hide-on-mobile {
     display: none; /* スマートフォンの場合は非表示 */
-		margin-right: 10px;
-		padding-top: 10px;
   }
 }
 
 .line-hidden {
   display: block; /* 初期状態では表示 */
+}
+
+.small-image {
 	margin-right: 10px;
+	padding-top: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -678,6 +680,6 @@ button {
 		height: 36px; /* 元のサイズの半分 */
 		width: auto;
 		align-items: center;
-		margin-top: 10px;
+		margin-top: 20px;
   }
 }
