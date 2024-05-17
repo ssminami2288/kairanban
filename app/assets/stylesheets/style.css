@@ -526,10 +526,12 @@ footer .pr {display: block;}
 /* デスクトップ用のスタイル */
 @media only screen and (min-width: 601px) {
   .small-image {
-		float: right; /* 画像を右側に配置 */
-		height: 70px; /* 画像の高さ */
-		margin-top: 0px; /* 上部の余白を調整 */
-	}
+    /* デスクトップ用のスタイル */
+    float: right; /* 画像を右側に配置 */
+    height: 90px; /* 画像を少し小さく */
+		padding-bottom: 45px;
+		margin-top: -45px;
+  }
 
   .line-hidden {
     /* デスクトップ用のスタイル */
