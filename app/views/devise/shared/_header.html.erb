@@ -30,7 +30,11 @@
     <ul>
       <li><a href="<%= posts_path %>">ホーム</a></li>
       <% if @posts.present? %>
-        <li><%= link_to '回覧板', post_path(@posts.first) %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to '回覧板', post_path(@posts.first) %></li>
+        <% else %>
+          <li><%= link_to '回覧板', posts_path %></li>
+        <% end %>
       <% else %>
         <li><%= link_to '回覧板', posts_path %></li>
       <% end %>

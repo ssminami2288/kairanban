@@ -513,7 +513,7 @@ footer .pr {display: block;}
 		font-size: 15px;
 		text-align: right;
 		padding-right: 10px;
-		padding-top: 7px;
+		margin-top: 2px;
   }
 }
 
