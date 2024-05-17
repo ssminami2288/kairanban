@@ -510,6 +510,7 @@ footer .pr {display: block;}
 .line-hidden {
   display: block; /* 初期状態では表示 */
 	text-align: right;
+	margin-right: 15px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -671,6 +672,6 @@ button {
 }
 
 .small-image {
-  height: 18px; /* 元のサイズの半分 */
+  height: 25px; /* 元のサイズの半分 */
   width: auto; /* アスペクト比を維持する */
 }
