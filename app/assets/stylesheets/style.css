@@ -513,7 +513,7 @@ footer .pr {display: block;}
     /* スマートフォン用のスタイル */
     margin: 0 auto; /* 水平方向は中央に配置 */
     display: block; /* ブロック要素に変更 */
-    height: 36px; /* 画像を少し小さく */
+    height: 50px; /* 画像を少し小さく */
 		padding-top: 20px;
   }
 
@@ -529,6 +529,7 @@ footer .pr {display: block;}
     /* デスクトップ用のスタイル */
     float: right; /* 画像を右側に配置 */
     height: 40px; /* 画像を少し小さく */
+		padding-bottom: 20px;
   }
 
   .line-hidden {
