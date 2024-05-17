@@ -154,7 +154,6 @@ a:hover {
 	max-width: 1800px;	/*サイトの最大幅。これ以上広がらない。*/
 	margin: 0 auto;
 	border-top: 5px solid var(--primary-color);	/*上の線の幅、線種、varは色のことで、ここではcss冒頭で指定しているテーマカラーを読み込みます。*/
-	align-items: center;
 }
 
 
@@ -514,6 +513,7 @@ footer .pr {display: block;}
     /* スマートフォン用のスタイル */
     margin: 0 auto; /* 水平方向は中央に配置 */
     display: block; /* ブロック要素に変更 */
+    height: 25px; /* 画像を少し小さく */
 		padding-top: 20px;
   }
 
@@ -527,7 +527,8 @@ footer .pr {display: block;}
 @media only screen and (min-width: 601px) {
   .small-image {
     /* デスクトップ用のスタイル */
-		margin-left: 30px;
+    float: right; /* 画像を右側に配置 */
+    height: 25px; /* 画像を少し小さく */
   }
 
   .line-hidden {
@@ -707,6 +708,3 @@ button {
   }
 }
 
-.lists-right {
-  flex: 1; /* リストが残りのスペースを埋める */
-}
