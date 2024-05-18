@@ -779,6 +779,7 @@ h1 a:hover {
 @media only screen and (max-width: 768px) {
   .backnumber {
     grid-template-columns: repeat(1, auto);
-		margin-bottom: 15px;
-  }
+		margin-bottom: 10px;
+		font-size: 18px;
+	}
 }
