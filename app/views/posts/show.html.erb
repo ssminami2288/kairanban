@@ -22,7 +22,8 @@
             <div class="delete-link">
               <h4>
                   <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do %>
-                  <%= submit_tag '削除', class: 'btn btn-danger' %>
+                    <%= submit_tag '削除', class: 'btn btn-danger' %>
+                  <% end %>
               </h4>
             </div>
           <% end %>
