@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth
   before_action :authenticate_user!
+  before_action :set_variant
 
   protected
 
@@ -30,5 +31,9 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == "admin" && password == "1111"
     end
+  end
+
+  def set_variant
+    request.variant = :mobile if request.user_agent =~ /Mobile|webOS/
   end
 end
