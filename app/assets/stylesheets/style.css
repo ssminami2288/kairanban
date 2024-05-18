@@ -521,6 +521,12 @@ footer .pr {display: block;}
     /* スマートフォン用のスタイル */
     text-align: center; /* テキストを中央に配置 */
   }
+	
+  .meeting-day {
+    /* スマートフォン用のスタイル */
+    font-size: 18px; /* テキストを中央に配置 */
+  }
+	
 }
 
 /* デスクトップ用のスタイル */

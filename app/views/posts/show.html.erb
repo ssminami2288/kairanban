@@ -35,11 +35,20 @@
               <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
             <% end %>
           <% end %>
-          <% if @post.pdfs.attached? && request.variant.mobile? %>
-            <% @post.pdfs.each do |pdf| %>
-              <h1>
-                <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
-              </h1>
+          <% if request.variant.mobile? %>
+            <% if @post.pdfs.attached? %>
+              <% @post.pdfs.each do |pdf| %>
+                <h1>
+                  <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
+                </h1>
+              <% end %>
+            <% end %>
+          <% else %>
+            <h1><%= @post.title %></h1>
+            <% if @post.pdfs.attached? %>
+              <% @post.pdfs.each do |pdf| %>
+                <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
+              <% end %>
             <% end %>
           <% end %>
           <% if @post.images.attached? %>
