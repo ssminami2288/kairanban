@@ -27,9 +27,6 @@
               </h4>
             </div>
           <% end %>
-          <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
-          <h1><%= @post.title %></h1>
-          <h3><%= @post.text %></h3>
           <% if @post.pdfs.attached? %>
             <% if request.variant.mobile? %>
               <% @post.pdfs.each do |pdf| %>
@@ -38,10 +35,17 @@
                 </a>
               <% end %>
             <% else %>
+              <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
               <h1><%= @post.title %></h1>
+              <h3><%= @post.text %></h3>
+              <% @post.pdfs.each do |pdf| %>
+                <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
+              <% end %>
             <% end %>
           <% else %>
+            <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
             <h1><%= @post.title %></h1>
+            <h3><%= @post.text %></h3>
           <% end %>
           <% if @post.images.attached? %>
             <% @post.images.each do |image| %>
