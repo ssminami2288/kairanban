@@ -517,16 +517,18 @@ footer .pr {display: block;}
 		padding-top: 20px;
   }
 
-  .line-hidden {
-    /* スマートフォン用のスタイル */
-    text-align: center; /* テキストを中央に配置 */
-  }
-	
   .meeting-day {
     /* スマートフォン用のスタイル */
     font-size: 18px; /* テキストを中央に配置 */
   }
 	
+}
+
+@media all and (hover: none) and (pointer: coarse), (max-device-width: 480px) {
+  .line-hidden {
+    display: none; /* LINEブラウザの場合は非表示にする */
+		text-align: center;
+  }
 }
 
 /* デスクトップ用のスタイル */
