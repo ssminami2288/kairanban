@@ -542,6 +542,7 @@ footer .pr {display: block;}
 .delete-link {
   /* デフォルトのスタイル（デスクトップ用） */
   margin-top: 0;
+	font-size: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -550,7 +551,8 @@ footer .pr {display: block;}
     margin-top: -10px; /* 必要に応じて調整してください */
     position: relative; /* 相対位置を指定 */
     top: -13px; /* 上に移動 */
-		text-align: right;
+		margin-left: 20px;
+		font-size: 20px;
   }
 }
 
@@ -714,3 +716,21 @@ button {
   }
 }
 
+h1 {
+  /* タイトルのスタイル */
+  font-size: 24px;
+  color: #333;
+  /* その他のスタイルを追加 */
+}
+
+h1 a {
+  /* リンクのスタイル */
+  text-decoration: none; /* 下線を削除 */
+  color: inherit; /* 親要素の色を継承 */
+  /* その他のスタイルを追加 */
+}
+
+h1 a:hover {
+  /* マウスオーバー時のスタイル */
+  text-decoration: underline; /* 下線を追加 */
+}
