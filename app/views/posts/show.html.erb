@@ -28,23 +28,19 @@
             </div>
           <% end %>
           <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
-          <h1><%= @post.title %></h1>
-          <h3><%= @post.text %></h3>
-          <% if @post.pdfs.attached? %>
-            <% @post.pdfs.each do |pdf| %>
-              <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
-            <% end %>
-          <% end %>
           <% if request.variant.mobile? %>
             <% if @post.pdfs.attached? %>
               <% @post.pdfs.each do |pdf| %>
                 <h1>
-                  <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
+                  <%= link_to @post.title, rails_blob_url(pdf), target: "_blank" %>
                 </h1>
               <% end %>
+            <% else %>
+              <h1><%= @post.title %></h1>
             <% end %>
           <% else %>
             <h1><%= @post.title %></h1>
+            <h3><%= @post.text %></h3>
             <% if @post.pdfs.attached? %>
               <% @post.pdfs.each do |pdf| %>
                 <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
@@ -58,6 +54,7 @@
               </div>
             <% end %>
           <% end %>
+        <% end %>
           <div class="parent-element">
             <h4>確認スタンプ</h4>
             <div class="stamps">
