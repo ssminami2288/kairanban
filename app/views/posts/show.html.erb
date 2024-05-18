@@ -29,15 +29,13 @@
                   </div>
                 <% end %>
                 <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
-                <% if request.variant.mobile? %>
+                <% if request.user_agent =~ /Mobile|webOS/ %>
                   <% if @post.pdfs.attached? %>
-                    <h1>
-                      <% @post.pdfs.each do |pdf| %>
-                        <%= link_to @post.title, rails_blob_url(pdf), target: "_blank" %>
-                      <% end %>
-                    </h1>
-                  <% else %>
-                    <h1><%= @post.title %></h1>
+                    <% @post.pdfs.each do |pdf| %>
+                      <h3>
+                        <%= link_to 'PDFを表示', rails_blob_url(pdf), target: "_blank" %>
+                      </h3>
+                    <% end %>
                   <% end %>
                   <h3><%= @post.text %></h3>
                 <% else %>
@@ -48,7 +46,6 @@
                       <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
                     <% end %>
                   <% end %>
-                <% end %>
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
                     <div class="centered-content">
