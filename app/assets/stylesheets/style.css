@@ -550,6 +550,7 @@ footer .pr {display: block;}
     margin-top: -10px; /* 必要に応じて調整してください */
     position: relative; /* 相対位置を指定 */
     top: -13px; /* 上に移動 */
+		text-align: right;
   }
 }
 
@@ -706,11 +707,10 @@ button {
   height: 600px;
 }
 
-/* スマートフォン向けのPDF埋め込みサイズ */
 @media only screen and (max-width: 600px) {
   .pdf-embed {
     width: 100%;
-    height: 300px; /* スマートフォン用に高さを調整 */
+    height: auto; /* 高さを自動調整 */
   }
 }
 
