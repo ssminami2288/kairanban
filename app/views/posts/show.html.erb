@@ -35,11 +35,9 @@
               <% if request.variant.desktop? %>
                 <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
               <% elsif request.variant.mobile? %>
-                <div class="pdf-link">
-                  <a href="<%= rails_blob_url(pdf) %>" target="_blank">
-                    <%= image_tag "PDF.jpg", class: "mx-auto item-show-icon" %>
-                  </a>
-                </div>
+                <h1>
+                  <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
+                </h1>
               <% end %>
             <% end %>
           <% end %>
