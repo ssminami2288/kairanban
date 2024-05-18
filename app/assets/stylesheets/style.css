@@ -201,7 +201,7 @@ header {
 
 @media only screen and (max-width: 768px) {
   #menubar li {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -542,12 +542,6 @@ footer .pr {display: block;}
 	}
 }
 
-@media only screen and (max-width: 768px) {
-	.mail-form {
-		display: block;
-	}
-}
-
 @supports (-webkit-touch-callout: none) {
   .line-hidden {
     display: none; /* LINEブラウザの場合は非表示にする */
@@ -773,4 +767,10 @@ h1 a:hover {
   /* 削除ボタンのスタイル */
   font-size: 18px; /* ボタンの文字サイズを大きく */
   padding: 10px 20px; /* ボタンのパディングを大きく */
+}
+
+@media only screen and (max-width: 768px) {
+  .mail-form {
+    display: block;
+  }
 }
