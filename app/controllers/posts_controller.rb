@@ -51,10 +51,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: '投稿が削除されました。' }
-      format.json { head :no_content }
-    end
+    redirect_to posts_path, notice: '投稿が削除されました。'
   end
 
   def backnumber

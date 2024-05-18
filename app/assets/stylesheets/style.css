@@ -549,7 +549,7 @@ footer .pr {display: block;}
     /* スマートフォン用のスタイル */
     margin-top: -10px; /* 必要に応じて調整してください */
     position: relative; /* 相対位置を指定 */
-    top: -10px; /* 上に移動 */
+    top: -13px; /* 上に移動 */
   }
 }
 
