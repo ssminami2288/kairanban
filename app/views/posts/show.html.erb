@@ -37,16 +37,16 @@
                 </div>
               <% end %>
             <% else %>
-              <h1><%= @post.title %></h1>
               <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
-              <h3><%= @post.text %></h3>
               <% @post.pdfs.each do |pdf| %>
                 <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
               <% end %>
+              <h1><%= @post.title %></h1>
+              <h3><%= @post.text %></h3>
             <% end %>
           <% else %>
-            <h1><%= @post.title %></h1>
             <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
+            <h1><%= @post.title %></h1>
             <h3><%= @post.text %></h3>
           <% end %>
           <% if @post.images.attached? %>
