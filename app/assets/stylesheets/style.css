@@ -534,7 +534,7 @@ footer .pr {display: block;}
 	}
 }
 
-@media all and (hover: none) and (pointer: coarse), (max-device-width: 480px) {
+@supports (-webkit-touch-callout: none) {
   .line-hidden {
     display: none; /* LINEブラウザの場合は非表示にする */
 		text-align: center;
