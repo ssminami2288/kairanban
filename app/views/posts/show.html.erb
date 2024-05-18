@@ -32,13 +32,15 @@
           <h3><%= @post.text %></h3>
           <% if @post.pdfs.attached? %>
             <% @post.pdfs.each do |pdf| %>
-              <% if request.variant.desktop? %>
-                <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
-              <% elsif request.variant.mobile? %>
-                <h1>
-                  <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
-                </h1>
-              <% end %>
+              <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
+            <% end %>
+          <% end %>
+          <% if @post.pdfs.attached? %>
+            <% @post.pdfs.each do |pdf| %>
+              <% if request.variant.mobile? %>
+              <h1>
+                <%= link_to "PDFを表示する", rails_blob_url(pdf), target: "_blank" %>
+              </h1>
             <% end %>
           <% end %>
           <% if @post.images.attached? %>
