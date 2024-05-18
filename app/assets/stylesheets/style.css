@@ -551,8 +551,8 @@ footer .pr {display: block;}
     margin-top: -10px; /* 必要に応じて調整してください */
     position: relative; /* 相対位置を指定 */
     top: -13px; /* 上に移動 */
-		margin-left: 20px;
-		font-size: 20px;
+		left: 50px;
+		font-size: 30px;
   }
 }
 
