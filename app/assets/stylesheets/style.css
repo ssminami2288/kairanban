@@ -772,7 +772,7 @@ h1 a:hover {
 @media only screen and (min-width: 769px) {
   .mail-form {
     display: none;
-		font-size: 15px;
+		font-size: 19px;
   }
 }
 
