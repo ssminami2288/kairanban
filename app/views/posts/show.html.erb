@@ -19,7 +19,9 @@
         <br>
         <% if @post %>
           <% if user_signed_in? && current_user.admin? %>
-            <h4><%= link_to '削除', "#", method: :delete, data: { confirm: '本当に削除しますか？' } %></h4>
+            <div class="delete-link">
+              <h4><%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' } %></h4>
+            </div>
           <% end %>
           <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
           <h1><%= @post.title %></h1>
