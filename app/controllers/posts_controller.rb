@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create]
   before_action :set_posts, only: [:show, :index, :edit, :update, :destroy]
+  before_action :set_post, only: [:destroy]
 
   def index
     @meeting = Meeting.new
@@ -83,5 +84,9 @@ class PostsController < ApplicationController
 
   def set_posts
     @posts = Post.order(created_at: :desc)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
