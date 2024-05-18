@@ -519,9 +519,19 @@ footer .pr {display: block;}
 
   .meeting-day {
     /* スマートフォン用のスタイル */
-    font-size: 18px; /* テキストを中央に配置 */
+    font-size: 17px; /* テキストを中央に配置 */
   }
-	
+	.meeting {
+		font-size: 20px;
+	}
+
+	h3 {
+		font-size: 20px;
+	}
+
+	h1 {
+		font-size: 22px;
+	}
 }
 
 @media all and (hover: none) and (pointer: coarse), (max-device-width: 480px) {
