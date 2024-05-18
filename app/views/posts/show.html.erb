@@ -31,19 +31,19 @@
                 <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
                 <% if @post.pdfs.attached? %>
                   <% @post.pdfs.each do |pdf| %>
-                    <a href="<%= rails_blob_url(pdf) %>">
+                    <% if request.variant.mobile? %>
+                      <a href="<%= rails_blob_url(pdf) %>">
+                        <h1><%= @post.title %></h1>
+                      </a>
+                    <% else %>
                       <h1><%= @post.title %></h1>
-                    </a>
+                      <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
+                    <% end %>
                   <% end %>
                   <h3><%= @post.text %></h3>
                 <% else %>
                   <h1><%= @post.title %></h1>
                   <h3><%= @post.text %></h3>
-                  <% if @post.pdfs.attached? %>
-                    <% @post.pdfs.each do |pdf| %>
-                      <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
-                    <% end %>
-                  <% end %>
                 <% end %>
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
