@@ -7,107 +7,105 @@
     <meta name="description" content="ここにサイト説明を入れます">
     <link rel="stylesheets" href="style.css">
   </head>
-  <%= render "devise/shared/header" %>
-  <main>
-    <div id="container">
-    <div id="contents">
-    <br>
-    <div class="wrapper">
-      <h2>回覧板</h2>
-      <br>
-      <div class="centered-content2">
-        <br>
-        <% if @post %>
-          <% if user_signed_in? && current_user.admin? %>
-            <div class="delete-link">
-              <h4>
-                <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do %>
-                  <%= submit_tag '削除', class: 'btn btn-danger' %>
+  <body>
+    <%= render "devise/shared/header" %>
+    <main>
+      <div id="container">
+        <div id="contents">
+          <br>
+          <div class="wrapper">
+            <h2>回覧板</h2>
+            <br>
+            <div class="centered-content2">
+              <br>
+              <% if @post %>
+                <% if user_signed_in? && current_user.admin? %>
+                  <div class="delete-link">
+                    <h4>
+                      <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do %>
+                        <%= submit_tag '削除', class: 'btn btn-danger' %>
+                      <% end %>
+                    </h4>
+                  </div>
                 <% end %>
-              </h4>
-            </div>
-          <% end %>
-          <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
-
-            <% if request.variant.mobile? %>
-              <% if @post.pdfs.attached? %>
-                <% @post.pdfs.each do |pdf| %>
-                  <h1>
-                    <%= link_to @post.title, rails_blob_url(pdf), target: "_blank" %>
-                  </h1>
-                <% end %>
-              <% else %>
-                <h1><%= @post.title %></h1>
-              <% end %>
-              <h3><%= @post.text %></h3>
-            <% else %>
-              <h1><%= @post.title %></h1>
-              <h3><%= @post.text %></h3>
-              <% if @post.pdfs.attached? %>
-                <% @post.pdfs.each do |pdf| %>
-                  <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
-                <% end %>
-              <% end %>
-            <% end %>
-
-            <% if @post.images.attached? %>
-              <% @post.images.each do |image| %>
-                <div class="centered-content">
-                  <img src="<%= rails_blob_url(image) %>" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-          <div class="parent-element">
-            <h4>確認スタンプ</h4>
-            <div class="stamps">
-              <button onclick="addStamp(<%= @post.id %>)">確認</button>
-              <div class="stamp-icons">
-                <% # スタンプの表示エリア %>
-                <% if current_user.admin? %> <!-- 管理人の場合 -->
-                  <% @post.stamps.each do |stamp| %>
-                    <span class="red-stamp"><%= stamp.user.last_name %></span>
+                <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
+                <% if request.variant.mobile? %>
+                  <% if @post.pdfs.attached? %>
+                    <h1>
+                      <% @post.pdfs.each do |pdf| %>
+                        <%= link_to @post.title, rails_blob_url(pdf), target: "_blank" %>
+                      <% end %>
+                    </h1>
+                  <% else %>
+                    <h1><%= @post.title %></h1>
                   <% end %>
-                <% else %> <!-- 他のユーザーの場合 -->
-                  <% @post.stamps.each do |stamp| %>
-                    <% if stamp.user.present? && stamp.user.id == current_user.id %>
-                      <span class="red-stamp"><%= stamp.user.last_name %></span>
+                  <h3><%= @post.text %></h3>
+                <% else %>
+                  <h1><%= @post.title %></h1>
+                  <h3><%= @post.text %></h3>
+                  <% if @post.pdfs.attached? %>
+                    <% @post.pdfs.each do |pdf| %>
+                      <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
                     <% end %>
                   <% end %>
                 <% end %>
-              </div>
+                <% if @post.images.attached? %>
+                  <% @post.images.each do |image| %>
+                    <div class="centered-content">
+                      <img src="<%= rails_blob_url(image) %>" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                  <% end %>
+                <% end %>
+                <div class="parent-element">
+                  <h4>確認スタンプ</h4>
+                  <div class="stamps">
+                    <button onclick="addStamp(<%= @post.id %>)">確認</button>
+                    <div class="stamp-icons">
+                      <% # スタンプの表示エリア %>
+                      <% if current_user.admin? %>
+                        <% @post.stamps.each do |stamp| %>
+                          <span class="red-stamp"><%= stamp.user.last_name %></span>
+                        <% end %>
+                      <% else %>
+                        <% @post.stamps.each do |stamp| %>
+                          <% if stamp.user.present? && stamp.user.id == current_user.id %>
+                            <span class="red-stamp"><%= stamp.user.last_name %></span>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+                <p>投稿が見つかりません。</p>
+              <% end %>
             </div>
           </div>
-        <% else %>
-          <p>投稿が見つかりません。</p>
-        <% end %>
+        </div>
       </div>
-    </div>
-  </main>
-  <body>
-            <!-- JavaScriptをbodyの最後に追加 -->
-      <script>
-        function addStamp(postId) {
-          fetch('/stamps', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
-            },
-            body: JSON.stringify({ stamp: { post_id: postId } }),
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data.notice) {
-              alert(data.notice);
-              location.reload();
-            } else {
-              alert(data.alert);
-            }
-          });
-        }
+    </main>
+    <%= render "devise/shared/footer" %>
+    <!-- JavaScriptをbodyの最後に追加 -->
+    <script>
+      function addStamp(postId) {
+        fetch('/stamps', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
+          },
+          body: JSON.stringify({ stamp: { post_id: postId } }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.notice) {
+            alert(data.notice);
+            location.reload();
+          } else {
+            alert(data.alert);
+          }
+        });
+      }
     </script>
   </body>
-  <%= render "devise/shared/footer" %>
 </html>
-
