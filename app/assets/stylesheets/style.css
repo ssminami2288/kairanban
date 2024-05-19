@@ -788,8 +788,7 @@ h1 a:hover {
   .button-container {
     align-items: right; /* スマートフォン用のスタイル: ボタンを左側に配置 */
     position: relative;
-    top: -15px; /* 少し上に移動 */
-		bottom: 10px;
+    top: -10px; /* 少し上に移動 */
     text-align: right; /* テキストを右寄せ */
   }
   
@@ -798,7 +797,20 @@ h1 a:hover {
     padding: 10px 10px;
   }
 
-  .edit-link {
+  .edit-link, .delete-link {
     margin: 0;
+    display: inline-block; /* インラインブロック要素として配置 */
+  }
+
+  .edit-link h4, .delete-link h4 {
+    margin-right: 15px; /* ボタン間の間隔を調整 */
   }
 }
+
+
+
+
+
+
+
+
