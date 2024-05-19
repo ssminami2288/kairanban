@@ -20,16 +20,16 @@
               <br>
               <% if @post %>
                 <% if user_signed_in? && current_user.admin? %>
-                <div class="delete-link">
-                  <h4>
-                    <%= link_to '編集', edit_post_path(@post), class: 'btn btn-danger' %>
-                  </h4>
-                  <h4>
-                    <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do |form| %>
-                      <%= form.submit '削除', class: 'btn btn-danger' %>
-                    <% end %>
-                  </h4>
-                </div>
+                  <div class="delete-link">
+                    <h4>
+                      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-danger' %>
+                    </h4>
+                    <h4>
+                      <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do |form| %>
+                        <%= form.submit '削除', class: 'btn btn-danger' %>
+                      <% end %>
+                    </h4>
+                  </div>
                 <% end %>
                 <h3><%= @post.date.strftime('%Y年%m月%d日') %></h3>
                 <% if @post.pdfs.attached? %>
