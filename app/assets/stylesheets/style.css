@@ -793,8 +793,7 @@ h1 a:hover {
     font-size: 18px;
   }
 
-  .edit-link,
-  .delete-link {
+  .edit-link{
     margin: 0;
   }
 }
