@@ -567,45 +567,6 @@ footer .pr {display: block;}
   }
 }
 
-.delete-link {
-  /* デフォルトのスタイル（デスクトップ用） */
-  margin-top: 0;
-  font-size: 20px;
-}
-
-.edit-link {
-	margin-top: 0;
-  font-size: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-  .delete-link {
-    /* スマートフォン用のスタイル */
-    margin-top: -10px;
-    position: relative;
-    top: -13px;
-    left: 50px;
-    font-size: 30px;
-  }
-  
-  .delete-link h4 {
-    /* ボタン間の間隔を調整 */
-    margin-right: 15px;
-  }
-
-	.edit-link {
-		margin-top: -10px;
-    position: relative;
-    top: -13px;
-    left: 50px;
-    font-size: 30px;
-	}
-
-	.edit-link h4 {
-		margin-right: 15px;
-	}
-}
-
 .wrapper3 {
   background: #fafafa;
 	display: flex; /* フレックスボックスレイアウトを適用 */
@@ -787,19 +748,6 @@ h1 a:hover {
   }
 }
 
-.btn.btn-danger {
-  /* 編集ボタンと削除ボタンの共通のスタイル */
-  font-size: 18px;
-  padding: 10px 20px;
-}
-
-
-@media only screen and (min-width: 769px) {
-  .mail-form {
-    display: none;
-		font-size: 19px;
-  }
-}
 
 @media only screen and (max-width: 768px) {
   .backnumber {
@@ -807,4 +755,35 @@ h1 a:hover {
 		margin-bottom: 10px;
 		font-size: 18px;
 	}
+}
+
+.btn.btn-danger {
+  /* 編集ボタンと削除ボタンの共通のスタイル */
+  font-size: 18px !important;
+  padding: 10px 20px !important;
+}
+
+.delete-link,
+.edit-link {
+  /* デフォルトのスタイル（デスクトップ用） */
+  margin-top: 0;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .delete-link,
+  .edit-link {
+    /* スマートフォン用のスタイル */
+    margin-top: -10px;
+    position: relative;
+    top: -13px;
+    left: 50px;
+    font-size: 30px;
+  }
+  
+  .delete-link h4,
+  .edit-link h4 {
+    /* ボタン間の間隔を調整 */
+    margin-right: 15px;
+  }
 }
