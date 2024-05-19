@@ -792,6 +792,7 @@ h1 a:hover {
     text-align: center; /* テキストを中央に配置 */
     display: flex;
 		margin-bottom: 10px;
+		display: inline-block;
   }
   
   .btn.btn-danger, button {
