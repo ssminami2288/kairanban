@@ -787,12 +787,8 @@ h1 a:hover {
 @media only screen and (max-width: 600px) {
   .button-container {
     align-items: center; /* スマートフォン用のスタイル: ボタンを中央に配置 */
-    position: relative;
-    top: -10px; /* 少し上に移動 */
     text-align: center; /* テキストを中央に配置 */
-    display: flex;
-		margin-bottom: 10px;
-		display: inline-block;
+    margin-bottom: 10px; /* 下部のマージンを追加 */
   }
   
   .btn.btn-danger, button {
@@ -801,13 +797,8 @@ h1 a:hover {
   }
 
   .edit-link, .delete-link {
-    margin: 0;
+    margin: 0 10px; /* 左右のマージンを追加 */
     display: inline-block; /* インラインブロック要素として配置 */
-  }
-
-  .edit-link h4, .delete-link h4 {
-    margin-right: 15px; /* ボタン間の間隔を調整 */
-    display: inline-block; /* ボタン間の間隔を調整 */
   }
 }
 
