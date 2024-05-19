@@ -673,6 +673,7 @@ h4 {
 	text-align: center; /* テキストを中央に配置 */
 	margin-bottom: 10px; /* ボトムマージンを追加して間隔を確保 */
 	margin-top: 10px;
+	margin-right: 5px;
 }
 
 /* スタンプエリアのスタイリング */
