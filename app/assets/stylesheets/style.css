@@ -761,31 +761,36 @@ h1 a:hover {
   /* 共通のボタンスタイル */
   font-size: 18px;
   padding: 10px 20px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
   margin: 5px 0;
   cursor: pointer;
+	background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: "ヒラギノ丸ゴ Pro", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  text-decoration: none;
 }
 
 .button-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* ボタンを右側に配置 */
+  align-items: right; /* ボタンを右側に配置 */
   gap: 20px; /* ボタン間の間隔 */
+	padding-right: 20px;
 }
 
 @media only screen and (max-width: 600px) {
   .button-container {
     align-items: flex-start; /* スマートフォン用のスタイル: ボタンを左側に配置 */
+		margin-bottom: 10px;
   }
   
   .btn.btn-primary {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .edit-link,
