@@ -757,15 +757,14 @@ h1 a:hover {
 	}
 }
 
-.btn.btn-primary {
-  /* 共通のボタンスタイル */
+.btn.btn-danger {
   font-size: 18px;
   padding: 10px 20px;
   text-align: center;
   display: inline-block;
   margin: 5px 0;
   cursor: pointer;
-	background: #f16272;
+  background: #f16272;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -778,18 +777,19 @@ h1 a:hover {
 
 .button-container {
   display: flex;
-  align-items: right; /* ボタンを右側に配置 */
+  flex-direction: column;
+  align-items: flex-end; /* ボタンを右側に配置 */
   gap: 20px; /* ボタン間の間隔 */
-	padding-right: 20px;
+  padding-right: 20px;
 }
 
 @media only screen and (max-width: 600px) {
   .button-container {
     align-items: flex-start; /* スマートフォン用のスタイル: ボタンを左側に配置 */
-		margin-bottom: 10px;
+    margin-bottom: 10px;
   }
   
-  .btn.btn-primary {
+  .btn.btn-danger {
     font-size: 18px;
   }
 
