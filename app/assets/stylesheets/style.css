@@ -570,17 +570,22 @@ footer .pr {display: block;}
 .delete-link {
   /* デフォルトのスタイル（デスクトップ用） */
   margin-top: 0;
-	font-size: 20px;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 600px) {
   .delete-link {
     /* スマートフォン用のスタイル */
-    margin-top: -10px; /* 必要に応じて調整してください */
-    position: relative; /* 相対位置を指定 */
-    top: -13px; /* 上に移動 */
-		left: 50px;
-		font-size: 30px;
+    margin-top: -10px;
+    position: relative;
+    top: -13px;
+    left: 50px;
+    font-size: 30px;
+  }
+  
+  .delete-link h4 {
+    /* ボタン間の間隔を調整 */
+    margin-right: 15px;
   }
 }
 
@@ -765,10 +770,10 @@ h1 a:hover {
   }
 }
 
-.btn-danger {
-  /* 削除ボタンのスタイル */
-  font-size: 18px; /* ボタンの文字サイズを大きく */
-  padding: 10px 20px; /* ボタンのパディングを大きく */
+.btn.btn-danger {
+  /* 編集ボタンと削除ボタンの共通のスタイル */
+  font-size: 18px;
+  padding: 10px 20px;
 }
 
 
