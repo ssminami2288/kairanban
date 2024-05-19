@@ -278,7 +278,6 @@ h2 {
 h3 {
 	font-size: 23px;		/*文字サイズ*/
 	text-align: center;		/*テキストをセンタリング*/
-	letter-spacing: 0.2em;	/*文字間隔を広くする指定*/
 	margin-bottom: 10px;
 }
 
@@ -778,6 +777,12 @@ h1 a:hover {
 }
 
 @media only screen and (max-width: 600px) {
+	h3 {
+		font-size: 22.3px;		/*文字サイズ*/
+		text-align: center;		/*テキストをセンタリング*/
+		margin-bottom: 10px;
+	}
+
 	.btn.btn-danger {
 		font-size: 13px;
 		padding: 8px 17px;
@@ -795,18 +800,14 @@ h1 a:hover {
 
 	.button-container {
 		display: flex;
+		justify-content: center;
 		align-items: center; /* ボタンを右側に配置 */
 		gap: 15px; /* ボタン間の間隔 */
 		margin-bottom: 10px;
 	}
 	.centered-content {
 		text-align: center; /* ボタンを中央配置するためのテキスト揃え */
-	}
-	
-	.button-container {
-		display: flex;
-		justify-content: center; /* ボタンコンテナ全体を中央配置 */
-		margin-bottom: 20px; /* 下部のマージン追加 */
+		display: inline-block;
 	}
 	
 	.edit-link,
