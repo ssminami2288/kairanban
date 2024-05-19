@@ -497,12 +497,10 @@ footer .pr {display: block;}
   background: #fafafa;
   margin: 0 auto;
   width: 95%;
-	margin-bottom: 20px;
-	padding: 5%;
-	max-width:100%;
-	display: block;
-	align-items: center;
-	text-align: center;
+  margin-bottom: 20px;
+  padding: 5%;
+  max-width: 100%;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
