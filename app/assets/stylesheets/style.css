@@ -788,8 +788,8 @@ h1 a:hover {
   .button-container {
     margin-top: -15px; /* 少し上に移動 */
     margin-bottom: 10px; /* 下部のマージンを追加 */
-		display: flex; /* フレックスボックスを使って要素を横並びに配置 */
 		justify-content: center; /* 要素を中央に配置 */
+		align-items: center; /* 要素を中央に配置 */
   }
   
   .btn.btn-danger, button {
@@ -799,6 +799,7 @@ h1 a:hover {
 
   .edit-link, .delete-link {
     margin: 0 10px; /* 左右のマージンを追加 */
+		display: inline-block; 
   }
 }
 
