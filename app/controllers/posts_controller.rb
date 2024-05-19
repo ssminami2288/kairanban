@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       remove_attached_files
-      redirect_to @post, notice: '投稿が更新されました。'
+      redirect_to post_path
     else
       render :edit
     end
