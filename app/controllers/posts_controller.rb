@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -40,7 +41,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post
+      remove_attached_files
+      redirect_to @post, notice: '投稿が更新されました。'
     else
       render :edit
     end
