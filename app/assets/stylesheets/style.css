@@ -567,10 +567,12 @@ footer .pr {display: block;}
   }
 }
 
-.delete-link {
-  /* デフォルトのスタイル（デスクトップ用） */
-  margin-top: 0;
-  font-size: 20px;
+.delete-link .btn.btn-danger,
+.delete-link .btn.btn-danger:focus,
+.delete-link .btn.btn-danger:hover {
+  /* 編集ボタンと削除ボタンの共通のスタイル */
+  font-size: 18px !important;
+  padding: 10px 20px !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -768,12 +770,6 @@ h1 a:hover {
     color: #333;
     /* その他のスタイルを追加 */
   }
-}
-
-.btn.btn-danger {
-  /* 編集ボタンと削除ボタンの共通のスタイル */
-  font-size: 18px;
-  padding: 10px 20px;
 }
 
 
