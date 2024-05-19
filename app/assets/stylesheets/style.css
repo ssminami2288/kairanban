@@ -580,12 +580,12 @@ footer .pr {display: block;}
     position: relative;
     top: -13px;
     left: 50px;
-    font-size: 30px;
+    font-size: 30px !important;
   }
   
   .delete-link h4 {
     /* ボタン間の間隔を調整 */
-    margin-right: 15px;
+    margin-right: 15px !important;;
   }
 }
 
@@ -773,7 +773,7 @@ h1 a:hover {
 .btn.btn-danger {
   /* 編集ボタンと削除ボタンの共通のスタイル */
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 10px 20px !important;;
 }
 
 
