@@ -784,3 +784,27 @@ h1 a:hover {
   padding-right: 20px;
 	margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+	.btn.btn-danger {
+		font-size: 13px;
+		padding: 8px 17px;
+		text-align: center;
+		display: inline-block;
+		margin: 5px 0;
+		background: #f16272;
+		border: none;
+		color: #fff;
+		cursor: pointer;
+		font-family: "ヒラギノ丸ゴ Pro", sans-serif;
+		letter-spacing: 0.05em;
+		text-decoration: none;
+	}
+
+	.button-container {
+		display: flex;
+		align-items: center; /* ボタンを右側に配置 */
+		gap: 15px; /* ボタン間の間隔 */
+		margin-bottom: 10px;
+	}
+}
