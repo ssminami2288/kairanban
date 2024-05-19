@@ -673,7 +673,7 @@ h4 {
 	text-align: center; /* テキストを中央に配置 */
 	margin-bottom: 10px; /* ボトムマージンを追加して間隔を確保 */
 	margin-top: 10px;
-	margin-right: 5px;
+	margin-left: 10px;
 }
 
 /* スタンプエリアのスタイリング */
@@ -787,16 +787,18 @@ h1 a:hover {
 @media only screen and (max-width: 600px) {
   .button-container {
     align-items: right; /* スマートフォン用のスタイル: ボタンを左側に配置 */
-		position: relative;
-		top: -10px; 
+    position: relative;
+    top: -15px; /* 少し上に移動 */
+		bottom: 10px;
+    text-align: right; /* テキストを右寄せ */
   }
   
-  .btn.btn-danger, button{
+  .btn.btn-danger, button {
     font-size: 15px;
-		padding: 5px 10px;
+    padding: 10px 10px;
   }
 
-  .edit-link{
+  .edit-link {
     margin: 0;
   }
 }
