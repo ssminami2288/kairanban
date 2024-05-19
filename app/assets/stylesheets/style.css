@@ -786,11 +786,13 @@ h1 a:hover {
 @media only screen and (max-width: 600px) {
   .button-container {
     align-items: right; /* スマートフォン用のスタイル: ボタンを左側に配置 */
-    margin-bottom: 10px;
+		position: relative;
+		top: -10px; 
   }
   
   .btn.btn-danger, button{
     font-size: 15px;
+		padding: 5px 10px;
   }
 
   .edit-link{
