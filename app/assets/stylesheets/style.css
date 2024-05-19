@@ -83,17 +83,19 @@ section + section {
 	align-items: center;
 }
 
-.center-form textarea {
+.center-form, textarea {
 	width: 300px; /* テキストエリアの幅をフォームの全体幅に合わせます */
 	height: 150px; /* テキストエリアの高さを設定します */
 	padding: 10px; /* テキストエリアの内側の余白を設定します */
 	align-items: center;
 }
+
 .form-group {
 	display: flex; /* フォームグループをフレックスボックスで表示 */
 	align-items: center; /* フォームグループ内の要素を縦方向に中央揃え */
 	justify-content: center;
 }
+
 
 .file-group {
 	display: flex; /* フォームグループをフレックスボックスで表示 */
