@@ -23,13 +23,13 @@
                   <div class="button-container">
                     <div class="edit-link">
                       <h4>
-                        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-danger' %>
+                        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-primary' %>
                       </h4>
                     </div>
                     <div class="delete-link">
                       <h4>
                         <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do |form| %>
-                          <%= form.submit '削除', class: 'btn btn-danger' %>
+                          <%= form.submit '削除', class: 'btn btn-primary' %>
                         <% end %>
                       </h4>
                     </div>
