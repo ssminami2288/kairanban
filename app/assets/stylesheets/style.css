@@ -757,7 +757,7 @@ h1 a:hover {
 	}
 }
 
-.btn.btn-danger {
+.btn.btn-danger, button{
   font-size: 18px;
   padding: 10px 20px;
   text-align: center;
@@ -785,12 +785,12 @@ h1 a:hover {
 
 @media only screen and (max-width: 600px) {
   .button-container {
-    align-items: flex-start; /* スマートフォン用のスタイル: ボタンを左側に配置 */
+    align-items: right; /* スマートフォン用のスタイル: ボタンを左側に配置 */
     margin-bottom: 10px;
   }
   
-  .btn.btn-danger {
-    font-size: 18px;
+  .btn.btn-danger, button{
+    font-size: 15px;
   }
 
   .edit-link{
