@@ -765,16 +765,12 @@ h1 a:hover {
   }
 }
 
-.btn.btn-danger {
+.btn-danger {
   /* 削除ボタンのスタイル */
   font-size: 18px; /* ボタンの文字サイズを大きく */
   padding: 10px 20px; /* ボタンのパディングを大きく */
 }
 
-.edit-button {
-	font-size: 18px; /* ボタンの文字サイズを大きく */
-  padding: 10px 20px; /* ボタンのパディングを大きく */
-}
 
 @media only screen and (min-width: 769px) {
   .mail-form {
