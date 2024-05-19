@@ -41,8 +41,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      remove_attached_files
-      redirect_to post_path
+      redirect_to post_path(@post)
     else
       render :edit
     end

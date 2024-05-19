@@ -22,7 +22,7 @@
                 <% if user_signed_in? && current_user.admin? %>
                   <div class="delete-link">
                     <h4>
-                      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-danger' %>
+                      <%= link_to '編集', edit_post_path(@post), class: 'btn btn-danger edit-button' %>
                       <br>
                       <%= form_with(model: @post, method: :delete, data: { confirm: '本当に削除しますか？' }) do %>
                         <%= submit_tag '削除', class: 'btn btn-danger' %>
