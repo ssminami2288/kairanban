@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create]
   before_action :set_posts, only: [:show, :index, :edit, :update, :destroy]
-  before_action :set_post, only: [:destroy]
+  before_action :set_post, only: [:destroy, :edit, :update]
 
   def index
     @meeting = Meeting.new
@@ -15,12 +15,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def edit
     @post = Post.find(params[:id])
-    @news = News.find(params[:id])
   end
 
   def create
@@ -41,7 +39,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to @post
     else
