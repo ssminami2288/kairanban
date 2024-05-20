@@ -802,7 +802,7 @@ h1 a:hover {
 	display: flex;
 	justify-content: center; /* ボタンを中央に配置 */
 	align-items: center; /* ボタンを中央に配置 */
-	gap: 10px; /* ボタン間の間隔 */
+	gap: 5px; /* ボタン間の間隔 */
 	margin-bottom: 10px;
 	flex-direction: row;
 	}
