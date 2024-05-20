@@ -15,13 +15,13 @@
   </div>
   <br>
   <div>
-    <%= form.label :pdfs, 'ファイルを添付' %>
+    <%= form.label :pdfs, hidden: true %>
   </div>
   <br>
   <div class="file-group">
     <% if @post.pdfs.attached? %>
       <% @post.pdfs.each do |pdf| %>
-        <%= link_to pdf.filename, pdf %>
+        <div><%= link_to pdf.filename, pdf %></div>
       <% end %>
     <% end %>
     <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
@@ -30,6 +30,7 @@
         <%= form.hidden_field :pdfs, value: pdf.signed_id %>
       <% end %>
     <% end %>
+    <%= form.submit '投稿する', class: 'submit-button' %>
   </div>
   <br>
   <div>
