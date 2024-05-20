@@ -40,13 +40,10 @@ class PostsController < ApplicationController
   end
 
   def update
-    if params[:post][:pdfs].blank? # ファイルが空の場合はファイルを更新しない
-      params[:post].delete(:pdfs) # ファイルパラメータを削除
-    end
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
