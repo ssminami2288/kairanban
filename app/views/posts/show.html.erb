@@ -42,10 +42,10 @@
                       </a>
                     <% else %>
                       <h1><%= @post.title %></h1>
+                      <h3><%= @post.text %></h3> <!-- タイトルの後にテキストを表示 -->
                       <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
                     <% end %>
                   <% end %>
-                  <h3><%= @post.text %></h3>
                 <% else %>
                   <h1><%= @post.title %></h1>
                   <h3><%= @post.text %></h3>
