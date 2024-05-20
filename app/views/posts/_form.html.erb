@@ -15,13 +15,21 @@
   </div>
   <br>
   <div class="file-group">
-    <%= form.label :pdfs, '' %>
-    <% @post.pdfs.each do |pdf| %>
-      <%= link_to pdf.filename, url_for(pdf), target: "_blank" %>
-    <% end %>
+    <div>
+      <%= form.label :pdfs, 'ファイルを添付' %>
+    </div>
     <br>
-    <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
-  </div>
+    <div class="file-group">
+      <% if @post.pdfs.attached? %>
+        <% @post.pdfs.each do |pdf| %>
+          <%= link_to pdf.filename, pdf %>
+        <% end %>
+      <% end %>
+      <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
+      <% if @post.pdfs.attached? %>
+        <%= form.hidden_field :pdfs, value: @post.pdfs.map(&:signed_id).join(',') %>
+      <% end %>
+    </div>
   <br>
   <div>
     <%= form.submit submit_button_text, class: 'submit-button' %>
