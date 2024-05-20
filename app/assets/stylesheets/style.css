@@ -665,7 +665,6 @@ h4 {
 	grid-template-columns: repeat(6, auto);
 	gap: 20px; /* 要素間の間隔を設定します */
 	padding: 20px; /* コンテンツ全体に余白を設定します */
-	border: 4px dashed #ccc;
 	width: 100%;
 }
 
