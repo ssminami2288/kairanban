@@ -51,6 +51,9 @@ class PostsController < ApplicationController
     else
       # 新しいPDFがある場合や既存のPDFがない場合の通常の更新処理
       if @post.update(post_params)
+        if params[:post][:pdfs].present?
+          @post.pdfs.attach(params[:post][:pdfs])
+        end
         redirect_to post_path(@post)
       else
         render :edit, status: :unprocessable_entity
