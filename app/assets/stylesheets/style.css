@@ -526,6 +526,10 @@ html, body {
   padding: 0;
 }
 
+.meeting-day {
+	font-size: 25px;
+}
+
 @media only screen and (max-width: 600px) {
   .menubar {
     font-size: 14px; /* 例: フォントサイズを小さくする */
@@ -847,10 +851,5 @@ h1 a:hover {
 	font-size: 15px;
   padding: 9px 19px;
 	margin-bottom: 20px;
-	}
-
-	.meeting-day {
-	text-align: center;
-	font-size: 25px;
 	}
 }
