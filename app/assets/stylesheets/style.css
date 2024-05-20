@@ -836,6 +836,11 @@ h1 a:hover {
     /* タイトルのスタイル */
     font-size: 20px;
     color: #333;
+		margin-bottom: 10px;
     /* その他のスタイルを追加 */
   }
+
+	.stamp-name {
+		font-size: 17px;
+	}
 }
