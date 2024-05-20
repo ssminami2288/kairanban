@@ -513,7 +513,6 @@ footer .pr {display: block;}
   width: 95%;
   padding: 5%;
   text-align: center;
-  box-sizing: border-box;
   flex: 1; /* Flexboxの子要素としてコンテンツを拡張 */
 	margin-top: 10px;
 }
