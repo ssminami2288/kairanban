@@ -500,8 +500,11 @@ footer .pr {display: block;}
   padding: 5%;
   max-width: 100%;
   text-align: center;
-	min-height: calc(100vh - 120px);
 	margin-bottom: 30px;
+}
+
+#contents {
+  height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
