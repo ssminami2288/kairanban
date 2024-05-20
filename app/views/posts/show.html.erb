@@ -38,16 +38,16 @@
                   <% @post.pdfs.each do |pdf| %>
                     <% if request.variant.mobile? %>
                       <a href="<%= rails_blob_url(pdf) %>">
-                        <title><%= @post.title %></title>
+                        <h1><%= @post.title %></h1>
                       </a>
                     <% else %>
-                      <title><%= @post.title %></title>
+                      <h1><%= @post.title %></h1>
                       <h3><%= @post.text %></h3> <!-- タイトルの後にテキストを表示 -->
                       <embed src="<%= rails_blob_url(pdf) %>" type="application/pdf" class="pdf-embed">
                     <% end %>
                   <% end %>
                 <% else %>
-                  <title><%= @post.title %></title>
+                  <h1><%= @post.title %></h1>
                   <h3><%= @post.text %></h3>
                 <% end %>
                 <% if @post.images.attached? %>
