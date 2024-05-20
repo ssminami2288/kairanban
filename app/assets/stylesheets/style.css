@@ -802,7 +802,6 @@ h1 a:hover {
 	display: flex;
 	justify-content: center; /* ボタンを中央に配置 */
 	align-items: center; /* ボタンを中央に配置 */
-	gap: -20px; /* ボタン間の間隔 */
 	margin-bottom: 10px;
 	flex-direction: row;
 	}
@@ -833,5 +832,20 @@ h1 a:hover {
 	text-transform: uppercase;
 	transition: background 0.3s ease-in-out;
 	width: 100%;
+	margin: 15px;
+	}
+
+	.button {
+	font-size: 14px;
+	padding: 8px 17px;
+	text-align: center;
+	margin: 5px 0;
+	background: #f16272;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-family: "ヒラギノ丸ゴ Pro", sans-serif;
+	letter-spacing: 0.05em;
+	text-decoration: none;
 	}
 }
