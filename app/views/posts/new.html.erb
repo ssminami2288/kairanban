@@ -7,11 +7,14 @@
 <meta name="description" content="ここにサイト説明を入れます">
 <link rel="stylesheets" href="style.css">
 </head>
-<%= render "devise/shared/header" %>
-<main class="main-content">
-  <div id="container">
+
+<body>
+  <%= render "devise/shared/header" %>
+
+  <main>
+    <div id="container">
     <div id="contents">
-      <br>
+    <br>
       <div class="wrapper">
         <h2>回覧板新規投稿</h2>
         <br>
@@ -35,7 +38,7 @@
           <div>
             <%= form.label :pdfs, 'ファイルを添付' %>
           </div>
-          <br>
+            <br>
           <div class="file-group">
             <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
           </div>
@@ -45,10 +48,8 @@
           </div>
         <% end %>
       </div>
-    </div>
-    <!--/#contents-->
-  </div>
-</main>
+  </main>
+</div>
 <!--/#contents-->
 
 <%= render "devise/shared/footer" %>
