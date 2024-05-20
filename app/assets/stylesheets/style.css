@@ -47,6 +47,10 @@ html,body {
 	background: #f0f0f0;	/*背景色*/
 	color: #777;		/*文字色*/
 	line-height: 2.5;		/*行間*/
+	display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /*リセット*/
@@ -265,7 +269,9 @@ ul.slick-dots li.slick-active button {
 
 /*mainブロック設定
 ---------------------------------------------------------------------------*/
-
+main {
+  flex: 1;
+}
 /*mainブロック内のh2*/
 h2 {
 	font-size: 1.8rem;		/*文字サイズ*/
@@ -337,6 +343,16 @@ footer a {color: inherit;text-decoration: none;}
 
 /*著作部分*/
 footer .pr {display: block;}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #e7e7e7;
+}
 
 
 /*メニューのご紹介ページの各ボックス
