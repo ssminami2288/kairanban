@@ -788,6 +788,10 @@ h1 a:hover {
 	flex-direction: row;
 }
 
+.nittei {
+	margin: 10px;
+}
+
 @media only screen and (max-width: 600px) {
 	h3 {
 	font-size: 22.3px;		/*文字サイズ*/

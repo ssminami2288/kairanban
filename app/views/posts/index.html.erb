@@ -24,8 +24,7 @@
         <% if current_user&.admin? %>
           <%= form_for @meeting, url: meetings_path do |form| %>
             <div>
-              <%= form.label :date, '次回の理事会の日程' %>
-              <br>
+              <%= form.label :date, '次回の理事会の日程', class: 'nittei' %>
               <%= form.date_field :date %>
             </div>
             <br>
