@@ -664,7 +664,7 @@ h4 {
 	text-align: center; /* テキストを中央に配置 */
 	margin-bottom: 10px; /* ボトムマージンを追加して間隔を確保 */
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 /* スタンプエリアのスタイリング */
@@ -815,10 +815,15 @@ h1 a:hover {
   text-align: center;
 	}
 	
-	.edit-link, .delete-link {
+	.delete-link {
 	margin: 0 5px; /* ボタン間のマージン */
 	}
 	.edit-link {
 		margin-left: 10px;
+	}
+
+	.parent-element button {
+	font-size: 15px;
+  padding: 9px 19px;
 	}
 }
