@@ -855,8 +855,12 @@ h1 a:hover {
 	}
 
 	h3 {
-	font-size: 20px;		/*文字サイズ*/
+	font-size: 18px;		/*文字サイズ*/
 	text-align: center;		/*テキストをセンタリング*/
 	margin-bottom: 10px;
+	}
+
+	.title {
+		font-size: 20px;
 	}
 }
