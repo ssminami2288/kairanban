@@ -815,8 +815,10 @@ h1 a:hover {
   text-align: center;
 	}
 	
-	.button-container .edit-link,
-	.button-container .delete-link {
+	.edit-link, .delete-link {
 	margin: 0 5px; /* ボタン間のマージン */
+	}
+	.edit-link {
+		margin-left: 10px;
 	}
 }
