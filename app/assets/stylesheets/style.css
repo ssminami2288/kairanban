@@ -120,8 +120,8 @@ section + section {
 }
 
 .submit-button {
-	font-size: 1rem; /* フォントサイズを大きくします */
-	padding: 10px 15px; /* ボタンの内側の余白を設定します */
+  display: block;
+  margin: 10px 0; /* 上下のマージンを追加してボタンを縦に配置 */
 }
 
 .guidance {

@@ -14,22 +14,23 @@
     <%= form.text_area :text %>
   </div>
   <br>
+  <div>
+    <%= form.label :pdfs, 'ファイルを添付' %>
+  </div>
+  <br>
   <div class="file-group">
-    <div>
-      <%= form.label :pdfs, 'ファイルを添付' %>
-    </div>
-    <br>
-    <div class="file-group">
-      <% if @post.pdfs.attached? %>
-        <% @post.pdfs.each do |pdf| %>
-          <%= link_to pdf.filename, pdf %>
-        <% end %>
+    <% if @post.pdfs.attached? %>
+      <% @post.pdfs.each do |pdf| %>
+        <%= link_to pdf.filename, pdf %>
       <% end %>
-      <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
-      <% if @post.pdfs.attached? %>
-        <%= form.hidden_field :pdfs, value: @post.pdfs.map(&:signed_id).join(',') %>
+    <% end %>
+    <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
+    <% if @post.pdfs.attached? %>
+      <% @post.pdfs.each do |pdf| %>
+        <%= form.hidden_field :pdfs, value: pdf.signed_id %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
   <br>
   <div>
     <%= form.submit submit_button_text, class: 'submit-button' %>

@@ -1,24 +1,26 @@
-<%= stylesheet_link_tag 'sessions/new' %>
-<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
-  <h1 id="logo">
-    <%= image_tag 'logo.jpeg', alt: 'Logo' %>
-  </h1>
-  <div class="form-wrapper">
-    <h1>ログイン</h1>
-    <div class="form-item">
-      <%= f.email_field :email, placeholder: 'メールアドレス', required: true %>
+<body>
+  <%= stylesheet_link_tag 'sessions/new' %>
+  <%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+    <h1 id="logo">
+      <%= image_tag 'logo.jpeg', alt: 'Logo' %>
+    </h1>
+    <div class="form-wrapper">
+      <h1>ログイン</h1>
+      <div class="form-item">
+        <%= f.email_field :email, placeholder: 'メールアドレス', required: true %>
+      </div>
+      <div class="form-item">
+        <%= f.password_field :password, placeholder: 'パスワード', required: true %>
+      </div>
+      <div class="button-panel">
+        <%= f.submit 'ログイン', class: 'button' %>
+      </div>
+      <div class="form-footer">
+        <p><a href="#">パスワードを忘れた方</a></p>
+      </div>
     </div>
-    <div class="form-item">
-      <%= f.password_field :password, placeholder: 'パスワード', required: true %>
-    </div>
-    <div class="button-panel">
-      <%= f.submit 'ログイン', class: 'button' %>
-    </div>
-    <div class="form-footer">
-      <p><a href="#">パスワードを忘れた方</a></p>
-    </div>
-  </div>
-<% end %>
-<br>
-<br>
-<%= render "devise/shared/footer" %>
+  <% end %>
+  <br>
+  <br>
+  <%= render "devise/shared/footer" %>
+</body>
