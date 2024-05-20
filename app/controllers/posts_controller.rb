@@ -42,14 +42,15 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    # 現在の添付ファイルを取得
-    current_attachments = @post.pdfs_attachments
+    
+    # もし新しい添付ファイルが選択されなかった場合は、params から削除しない
+    if params[:post][:pdfs].blank?
+      # ファイルフィールドが空の場合は、更新をスキップする
+      params[:post].delete(:pdfs)
+    end
+    
     if @post.update(post_params)
-      # 送信されたファイルと異なる場合は、古いファイルを削除
-      current_attachments.each do |attachment|
-        attachment.purge if !params[:post][:pdfs].include?(attachment.blob.filename.to_s)
-      end
-      redirect_to @post, notice: '更新しました。'
+      redirect_to post_path(@post)
     else
       render :edit, status: :unprocessable_entity
     end
