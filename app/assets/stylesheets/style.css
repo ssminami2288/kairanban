@@ -826,13 +826,6 @@ h1 a:hover {
   text-align: center;
 	}
 
-	.delete-link {
-	margin-right: 22.5px;
-	}
-	.edit-link {
-	margin-left: 22.5px;
-	}
-
 	.parent-element button {
 	font-size: 15px;
   padding: 9px 19px;
