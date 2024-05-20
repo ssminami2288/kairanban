@@ -511,9 +511,8 @@ footer .pr {display: block;}
   background: #fafafa;
   margin: 10px auto;
   width: 95%;
-  padding: 5%;
+	padding: 0 auto;
   text-align: center;
-	word-wrap: break-word;
 }
 
 #contents {
