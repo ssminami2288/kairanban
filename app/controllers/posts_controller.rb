@@ -43,16 +43,21 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     
-    # もし新しい添付ファイルが選択されなかった場合は、params から削除しない
+    # フォームから送信されたパラメーターでファイルが空であるかをチェック
     if params[:post][:pdfs].blank?
-      # ファイルフィールドが空の場合は、更新をスキップする
-      params[:post].delete(:pdfs)
-    end
-    
-    if @post.update(post_params)
-      redirect_to post_path(@post)
+      # ファイルが空の場合、現在のファイルを保持したまま更新処理を行う
+      if @post.update(post_params.except(:pdfs))
+        redirect_to post_path(@post), notice: '投稿が更新されました'
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
-      render :edit, status: :unprocessable_entity
+      # ファイルが含まれている場合は通常の更新処理を行う
+      if @post.update(post_params)
+        redirect_to post_path(@post), notice: '投稿が更新されました'
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   end
   
