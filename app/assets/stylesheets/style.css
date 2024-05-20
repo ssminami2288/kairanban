@@ -509,12 +509,10 @@ footer .pr {display: block;}
 
 .wrapper {
   background: #fafafa;
-  margin: 0 auto;
-  width: 95%;
+  margin: 10px auto;
+  width: 100%;
   padding: 5%;
   text-align: center;
-  flex: 1; /* Flexboxの子要素としてコンテンツを拡張 */
-	margin-top: 10px;
 }
 
 #contents {
