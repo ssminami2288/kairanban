@@ -15,7 +15,7 @@
   </div>
   <br>
   <div class="file-group">
-    <%= form.label :pdfs, %>
+    <%= form.label :pdfs, '' %>
     <% @post.pdfs.each do |pdf| %>
       <%= link_to pdf.filename, url_for(pdf), target: "_blank" %>
     <% end %>
