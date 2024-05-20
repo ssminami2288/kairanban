@@ -772,7 +772,7 @@ h1 a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-end; /* ボタンを右側に配置 */
-  gap: 10px; /* ボタン間の間隔 */
+  gap: 5px; /* ボタン間の間隔 */
   padding-right: 20px;
 	margin-bottom: 10px;
 }
@@ -804,17 +804,16 @@ h1 a:hover {
 	align-items: center; /* ボタンを中央に配置 */
 	gap: 10px; /* ボタン間の間隔 */
 	margin-bottom: 10px;
+	flex-direction: row;
 	}
 
 	.centered-content {
-  display: flex; /* 要素をブロック要素として扱う */
+  display: block; /* 要素をブロック要素として扱う */
   margin: 15px auto; /* 左右のマージンを自動にして中央に配置 */
   max-width: 100%; /* 要素の最大幅を親要素の100%に設定 */
   padding: 0 50px;
   border: 4px dashed #ccc;
   text-align: center;
-	align-items: center; /* 子要素を中央に配置 */
-	text-align: center; /* テキストを中央に配置 */
 	}
 	
 	.edit-link, .delete-link {
