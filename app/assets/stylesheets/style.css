@@ -617,7 +617,7 @@ html, body {
 	margin-bottom: 20px;
 }
 
-.centered-content {
+.centered-content2 {
   display: block; /* 要素をブロック要素として扱う */
   margin: 15px auto; /* 左右のマージンを自動にして中央に配置 */
   max-width: 100%; /* 要素の最大幅を親要素の100%に設定 */
