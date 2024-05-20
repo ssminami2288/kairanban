@@ -816,11 +816,10 @@ h1 a:hover {
 	}
 	
 	.delete-link {
-	margin: 0 5px; /* ボタン間のマージン */
+	margin-left: 10px;
 	}
 	.edit-link {
-		margin-left: 10px;
-		margin-right: 5px;
+	margin-right: 10px;
 	}
 
 	.parent-element button {
