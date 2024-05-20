@@ -25,6 +25,7 @@
           <%= form_for @meeting, url: meetings_path do |form| %>
             <div>
               <%= form.label :date, '次回の理事会の日程' %>
+              <br>
               <%= form.date_field :date %>
             </div>
             <br>

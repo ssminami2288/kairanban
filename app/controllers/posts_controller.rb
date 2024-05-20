@@ -40,12 +40,21 @@ class PostsController < ApplicationController
   end
 
   def update
+    # PDF ファイルの情報を保持するための処理
+    existing_pdfs = @post.pdfs.attachments if @post.pdfs.attached?
     if @post.update(post_params)
+      # PDF が空の場合、元の PDF を再度アタッチする
+      if post_params[:pdfs].blank? && existing_pdfs.present?
+        existing_pdfs.each do |pdf|
+          @post.pdfs.attach(pdf.blob)
+        end
+      end
       redirect_to post_path(@post)
     else
       render :edit, status: :unprocessable_entity
     end
   end
+  
 
   def destroy
     @post.destroy
