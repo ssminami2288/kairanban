@@ -843,7 +843,7 @@ h1 a:hover {
 
 @media only screen and (max-width: 600px) {
   stamp-name {
-		margin: 10px;
+		margin: 5px;
     font-size: 18.5px;
   }
 }
