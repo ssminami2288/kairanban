@@ -814,12 +814,12 @@ h1 a:hover {
   border: 4px dashed #ccc;
   text-align: center;
 	}
-	
+
 	.delete-link {
-	margin-left: 10px;
+	margin-right: 10px;
 	}
 	.edit-link {
-	margin-right: 10px;
+	margin-left: 10px;
 	}
 
 	.parent-element button {
