@@ -701,9 +701,7 @@ h4 {
 button {
 	padding: 10px 20px; /* ボタンの内側にパディングを追加 */
 	display: block; /* ブロックとして表示して上下マージンを適用 */
-	margin-top: 10px;
-	margin-bottom: 20px;
-	margin: 0 auto;
+	margin: 10px auto;
 	border-radius: 5px;
 }
 
