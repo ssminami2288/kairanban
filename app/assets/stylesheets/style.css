@@ -112,7 +112,7 @@ section + section {
 	width: 70px; /* ボタンの幅をフォーム全体の半分に設定します */
 	padding: 20px 20px; /* ボタンの内側の余白を設定します */
 	font-size: 1.2em; /* ボタンのフォントサイズを大きくします */
-	margin-top: 20px; /* ボタンと他の要素との間隔を設定します */
+	margin-top: 10px; /* ボタンと他の要素との間隔を設定します */
 }
 
 .submit-button {
@@ -689,7 +689,8 @@ h4 {
 button {
 	padding: 10px 20px; /* ボタンの内側にパディングを追加 */
 	display: block; /* ブロックとして表示して上下マージンを適用 */
-	margin-bottom: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	margin: 0 auto;
 	border-radius: 5px;
 }

@@ -27,13 +27,11 @@
               <%= form.label :date, '次回の理事会の日程' %>
               <%= form.date_field :date %>
             </div>
-            <br>
             <div>
               <%= form.submit '設定', class: 'btn btn-danger' %>
             </div>
           <% end %>
         <% end %>
-        <br>
         <div class="meeting-day">
           <% @meeting = Meeting.last %>
             <% if @meeting&.date.present? %>
