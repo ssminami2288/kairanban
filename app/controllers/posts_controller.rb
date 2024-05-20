@@ -41,8 +41,15 @@ class PostsController < ApplicationController
 
 
   def update
+    @post = Post.find(params[:id])
+    # 現在の添付ファイルを取得
+    current_attachments = @post.pdfs_attachments
     if @post.update(post_params)
-      redirect_to post_path(@post)
+      # 送信されたファイルと異なる場合は、古いファイルを削除
+      current_attachments.each do |attachment|
+        attachment.purge if !params[:post][:pdfs].include?(attachment.blob.filename.to_s)
+      end
+      redirect_to @post, notice: '更新しました。'
     else
       render :edit, status: :unprocessable_entity
     end
