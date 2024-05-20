@@ -788,6 +788,10 @@ h1 a:hover {
 	flex-direction: row;
 }
 
+.stamp-name {
+	font-size: 22px;
+}
+
 @media only screen and (max-width: 600px) {
 	h3 {
 	font-size: 22.3px;		/*文字サイズ*/
@@ -841,6 +845,6 @@ h1 a:hover {
   }
 
 	.stamp-name {
-		font-size: 17px;
+		font-size: 18px;
 	}
 }
