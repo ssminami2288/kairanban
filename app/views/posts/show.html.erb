@@ -60,7 +60,9 @@
                 <div class="parent-element">
                   <h4>確認スタンプ</h4>
                   <div class="stamps">
-                    <button onclick="addStamp(<%= @post.id %>)">確認</button>
+                    <div class="stampbutton">
+                      <button onclick="addStamp(<%= @post.id %>)">確認</button>
+                    </div>
                     <div class="stamp-icons">
                       <% # スタンプの表示エリア %>
                       <% if current_user.admin? %>

@@ -802,7 +802,7 @@ h1 a:hover {
 	display: flex;
 	justify-content: center; /* ボタンを中央に配置 */
 	align-items: center; /* ボタンを中央に配置 */
-	gap: -10px; /* ボタン間の間隔 */
+	gap: -20px; /* ボタン間の間隔 */
 	margin-bottom: 10px;
 	flex-direction: row;
 	}
@@ -817,10 +817,10 @@ h1 a:hover {
 	}
 	
 	.edit-link, .delete-link {
-	margin: 0 10px; /* ボタン間のマージン */
+	margin: 0 5px; /* ボタン間のマージン */
 	}
 
-	.button-panel .button {
+	.stampbutton {
 	background: #f16272;
 	border: none;
 	color: #fff;
