@@ -500,7 +500,7 @@ footer .pr {display: block;}
   padding: 5%;
   max-width: 100%;
   text-align: center;
-	overflow: auto;
+	min-height: calc(100vh - 100px);
 }
 
 @media only screen and (max-width: 600px) {
