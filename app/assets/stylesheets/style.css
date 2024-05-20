@@ -825,5 +825,6 @@ h1 a:hover {
 	.parent-element button {
 	font-size: 15px;
   padding: 9px 19px;
+	margin-bottom: 20px;
 	}
 }
