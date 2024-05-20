@@ -566,7 +566,7 @@ html, body {
 	}
 
 	h1 {
-		font-size: 22px;
+		font-size: 20px;
 	}
 }
 
@@ -762,7 +762,7 @@ h1 a:hover {
 @media only screen and (min-width: 601px) {
   h1 {
     /* タイトルのスタイル */
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
     /* その他のスタイルを追加 */
   }
@@ -851,11 +851,7 @@ h1 a:hover {
 	.parent-element button {
 	font-size: 15px;
   padding: 9px 19px;
-	margin-bottom: 20px;	}
-
-
-	.h1 {
-		font-size: 18px;
-		text-align: center;
+	margin-bottom: 20px;	
 	}
+
 }
