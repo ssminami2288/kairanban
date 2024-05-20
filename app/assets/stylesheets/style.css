@@ -501,10 +501,14 @@ footer .pr {display: block;}
   max-width: 100%;
   text-align: center;
 	margin-bottom: 30px;
+	min-height: calc(100vh - 100px);
+	overflow-y: auto;
 }
 
 #contents {
-  height: 100%;
+  margin: 0 auto; /* 中央配置 */
+  width: 95%; /* コンテンツの幅を95%に設定 */
+  max-width: 100%; /* 最大幅を親要素の幅に設定 */
 }
 
 @media only screen and (max-width: 600px) {
