@@ -511,10 +511,11 @@ footer .pr {display: block;}
   background: #fafafa;
   margin: 0 auto;
   width: 95%;
-  margin-bottom: 20px;
-  padding: 10px;
+  padding: 5%;
   text-align: center;
-	min-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  flex: 1; /* Flexboxの子要素としてコンテンツを拡張 */
+	margin-top: 10px;
 }
 
 #contents {
