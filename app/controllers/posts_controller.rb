@@ -40,22 +40,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    if params[:post][:pdfs].blank? && @post.pdfs.attached?
-      # 新しいPDFが空で、既存のPDFがある場合、元のPDFを保持するための処理
-      post_params_without_pdfs = post_params.except(:pdfs)
-      if @post.update(post_params_without_pdfs)
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    else
-      # 新しいPDFがある場合や既存のPDFがない場合の通常の更新処理
-      if @post.update(post_params)
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    end
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post)
   end
   
 
