@@ -812,13 +812,6 @@ h1 a:hover {
   margin: 20px 0;
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  max-height: 500px; /* 画像の最大高さを設定 */
-  object-fit: contain; /* 画像のアスペクト比を維持 */
-  border: 1px solid #ddd; /* 必要に応じて画像に枠線を追加 */
-}
 
 @media only screen and (max-width: 600px) {
 	h3 {
