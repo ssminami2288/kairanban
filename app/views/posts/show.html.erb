@@ -52,14 +52,8 @@
                 <% end %>
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
-                  <style>
-                    .small-image {
-                      max-width: 250px;
-                      max-height: 450px;
-                    }
-                  </style>
                     <div>
-                      <%= image_tag post.image, class: 'small-image' %>
+                      <%= image_tag post.image.variant(resize_to_limit: [250, 450]) %>
                     </div>
                   <% end %>
                 <% end %>
