@@ -738,8 +738,8 @@ button {
 
 .show-image {
 	width: 100%;
-	eight: 600px;
-	}
+	height: 600px;
+}
 
 h1 a {
   /* リンクのスタイル */
