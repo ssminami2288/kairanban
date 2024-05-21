@@ -160,6 +160,7 @@ a:hover {
 /*コンテナー（サイト全体を囲むブロック）
 ---------------------------------------------------------------------------*/
 #container {
+	flex: 1;
 	height: 100%;
 	display: flex;					/*flexボックスを使う指定*/
 	flex-direction: column;			/*子要素を縦並びにする*/
@@ -526,6 +527,7 @@ footer .pr {display: block;}
 }
 
 html, body {
+	height: 100%;
   margin: 0;
   padding: 0;
 }
