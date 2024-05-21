@@ -53,7 +53,7 @@
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
                     <div>
-                      <%= image_tag post.image.variant(resize: '250×450')%>
+                      <%= image_tag post.image.variant(resize: '250,450') %>
                     </div>
                   <% end %>
                 <% end %>
