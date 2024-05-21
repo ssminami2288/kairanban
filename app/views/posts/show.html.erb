@@ -50,13 +50,6 @@
                   <h1><%= @post.title %></h1>
                   <h3><%= @post.text %></h3>
                 <% end %>
-                <% if @post.images.attached? %>
-                  <% @post.images.each do |image| %>
-                    <div>
-                      <%= image_tag post.image.variant(resize_to_limit: [50, 50]) %>
-                    </div>
-                  <% end %>
-                <% end %>
                 <div class="parent-element">
                   <stamp-name>確認スタンプ</stamp-name>
                   <div class="stamps">
