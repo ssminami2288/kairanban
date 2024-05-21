@@ -17,20 +17,18 @@
   <% if @post.pdfs.attached? %>
     <div class="attached-files">
       <% @post.pdfs.each do |pdf| %>
-        <div><%= link_to pdf.filename, pdf %></div>
+        <div>
+          <%= link_to pdf.filename, pdf %>
+          <%= form.hidden_field :existing_pdfs, value: pdf.signed_id %>
+        </div>
       <% end %>
     </div>
   <% end %>
   <div>
-    <%= form.label :pdfs, hidden: true %>
+    <%= form.label :pdfs, 'ファイルを添付' %>
   </div>
   <div class="file-group">
     <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
-    <% if @post.pdfs.attached? %>
-      <% @post.pdfs.each do |pdf| %>
-        <%= form.hidden_field :pdfs, value: pdf.signed_id %>
-      <% end %>
-    <% end %>
   </div>
   <br>
   <div class="submit-button-container">
