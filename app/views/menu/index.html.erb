@@ -9,44 +9,41 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <%= render "devise/shared/header" %>
+  <%= render "devise/shared/header" %>
 
-    <main>
-      <div id="container">
-        <div id="contents">
+  <main>
+    <div id="container">
+      <div id="contents">
+        <br>
+        <div class="wrapper">
+          <h2>バックナンバー</h2>
           <br>
-          <div class="wrapper">
-            <h2>バックナンバー</h2>
-            <br>
-            <div class="backnumber">
-              <% @posts.each do |post| %>
-                <% unless post == @posts.first %>
-                  <div>
-                    <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
-                    <div class="bh3"><%= link_to post.title, post_path(post) %></div>
-                    <!-- 他の投稿内容を表示するためのコード -->
-                  </div>
-                  <br>
-                <% end %>
+          <div class="backnumber">
+            <% @posts.each do |post| %>
+              <% unless post == @posts.first %>
+                <div>
+                  <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
+                  <div class="bh3"><%= link_to post.title, post_path(post) %></div>
+                  <!-- 他の投稿内容を表示するためのコード -->
+                </div>
+                <br>
               <% end %>
-            </div>
+            <% end %>
           </div>
-          <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
-          <br>
         </div>
+        <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
+        <br>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <%= render "devise/shared/footer" %>
-  </div>
-
-  <!--ページの上部へ戻るボタン-->
+  <%= render "devise/shared/footer" %>
+</body>
   <div class="pagetop">
     <a href="#"><i class="fas fa-angle-double-up"></i></a>
   </div>
 
   <!--jQueryの読み込み-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</body>
+
 </html>

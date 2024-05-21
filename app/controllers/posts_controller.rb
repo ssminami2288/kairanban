@@ -41,8 +41,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+  
+    # パラメータのログ出力
     Rails.logger.debug "Params: #{params.inspect}"
     Rails.logger.debug "Post params: #{post_params.inspect}"
+  
+    # 既存のPDFを保持するための処理
     if params[:post][:pdfs].blank? && @post.pdfs.attached?
       existing_pdfs = params[:post][:existing_pdfs]
       if @post.update(post_params.except(:pdfs))
@@ -59,6 +63,7 @@ class PostsController < ApplicationController
       end
     end
   end
+  
 
   def destroy
     @post.destroy
