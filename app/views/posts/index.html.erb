@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="/stylesheets/application.css">
 </head>
 
-<%= render "devise/shared/header" %>
+<body>
+  <%= render "devise/shared/header" %>
 
-<main>
-  <body>
+  <main>
     <div id="container">
     <div id="contents">
     <br>
@@ -40,15 +40,16 @@
               次回の理事会は<%= @meeting.date.strftime('%Y年%m月%d日') %>です。
           <% else %>
             次回の理事会は未定です。
-          <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
+        <br>
       </div>
     </div>
-    <br>
-  </body>
-</main>
+  </main>
 
-<!--/#contents-->
+  <%= render "devise/shared/footer" %>
+</body>
 
-<%= render "devise/shared/footer" %>
 </html>
