@@ -79,6 +79,8 @@ gem 'whenever', require: false
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
+gem 'rspec-rails', '~> 4.0.0'
+gem 'factory_bot_rails'
 
 group :production do
   gem 'pg'

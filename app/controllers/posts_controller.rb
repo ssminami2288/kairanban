@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   def index
     @meeting = Meeting.new
     @posts = Post.order(created_at: :desc)
-    @news_posts = Post.all
   end
 
   def new
