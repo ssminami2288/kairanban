@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     Rails.logger.debug "Params: #{params.inspect}"
     Rails.logger.debug "Post params: #{post_params.inspect}"
   
-    existing_pdfs = params[:post][:existing_pdfs] || []
+    existing_pdfs = params[:post][:existing_pdfs].is_a?(Array) ? params[:post][:existing_pdfs] : [params[:post][:existing_pdfs]].compact
     @post.pdfs.attach(existing_pdfs.map { |signed_id| ActiveStorage::Blob.find_signed(signed_id) }) if existing_pdfs.present?
   
     if @post.update(post_params)
