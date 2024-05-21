@@ -53,7 +53,7 @@
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
                     <div class="centered-content">
-                      <%= image_tag post.image, style: "max-width: 100%; height: auto;" %>
+                      <img src="<%= rails_blob_url(image) %>" class="show-image">
                     </div>
                   <% end %>
                 <% end %>
