@@ -37,7 +37,8 @@
 
     .guidance {
     text-align: center;
-    padding: 20px;
+    margin: 10px
+    white-space: nowrap; 
     }
   </style>
 </head>
@@ -62,11 +63,11 @@
             <% end %>
           </div>
         </div>
-        <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
         <br>
       </div>
     </div>
   </main>
+  <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
   <%= render "devise/shared/footer" %>
 </body>
 </html>
