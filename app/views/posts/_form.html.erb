@@ -1,4 +1,4 @@
-<%= form_with(model: @post, local: true, html: { multipart: true, class: 'center-form' }) do |form| %>
+<%= form_with(model: @post, local: true) do |form| %>
   <div>
     <%= form.label :date, '日付' %>
     <%= form.date_field :date %>
@@ -14,18 +14,23 @@
     <%= form.text_area :text %>
   </div>
   <br>
-  <div>
-    <%= form.label :pdfs, 'ファイルを添付' %>
-  </div>
-  <br>
-  <div class="file-group">
-    <% if @post.pdfs.attached? %>
+  <% if @post.pdfs.attached? %>
+    <div>
       <% @post.pdfs.each do |pdf| %>
         <div><%= link_to pdf.filename, pdf %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :pdfs, hidden: true %>
+  </div>
+  <div class="file-group">
+    <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
+    <% if @post.pdfs.attached? %>
+      <% @post.pdfs.each do |pdf| %>
         <%= form.hidden_field :pdfs, value: pdf.signed_id %>
       <% end %>
     <% end %>
-    <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf,image/png,image/jpeg' %>
   </div>
   <br>
   <div class="submit-button-container">
