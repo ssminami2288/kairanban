@@ -24,7 +24,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    resize_image if params[:post][:image].present?
     if @post.save
       if @post.category == '回覧板'
         # 最新の投稿以外の回覧板投稿をバックナンバーに移動
