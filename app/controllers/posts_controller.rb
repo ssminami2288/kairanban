@@ -98,4 +98,10 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
+  def resize_image
+    image = MiniMagick::Image.new(params[:post][:image].tempfile.path)
+    image.resize "300x300>"  # 300x300ピクセルにリサイズする（アスペクト比を保持する）
+    image.write(params[:post][:image].tempfile.path)
+  end
 end
