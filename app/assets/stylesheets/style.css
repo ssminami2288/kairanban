@@ -737,8 +737,8 @@ button {
 }
 
 .show-image {
-	max-width: 100%;
-	max-height: 100%;
+	width: 100%;
+	eight: 600px;
 	}
 
 h1 a {
