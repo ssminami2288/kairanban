@@ -41,26 +41,18 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-  
+    
     # パラメータのログ出力
     Rails.logger.debug "Params: #{params.inspect}"
     Rails.logger.debug "Post params: #{post_params.inspect}"
   
-    # 既存のPDFを保持するための処理
-    if params[:post][:pdfs].blank? && @post.pdfs.attached?
-      existing_pdfs = params[:post][:existing_pdfs]
-      if @post.update(post_params.except(:pdfs))
-        @post.pdfs.attach(existing_pdfs.map { |signed_id| ActiveStorage::Blob.find_signed(signed_id) })
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    existing_pdfs = params[:post][:existing_pdfs] || []
+    @post.pdfs.attach(existing_pdfs.map { |signed_id| ActiveStorage::Blob.find_signed(signed_id) }) if existing_pdfs.present?
+  
+    if @post.update(post_params)
+      redirect_to post_path(@post)
     else
-      if @post.update(post_params)
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      render :edit, status: :unprocessable_entity
     end
   end
   
