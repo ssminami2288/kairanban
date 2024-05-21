@@ -800,6 +800,19 @@ h1 a:hover {
   margin-bottom: 5px; /* 保持しているファイル名を縦並びにする */
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px; /* 必要に応じて高さを調整 */
+}
+
 @media only screen and (max-width: 600px) {
 	h3 {
 	font-size: 22.3px;		/*文字サイズ*/

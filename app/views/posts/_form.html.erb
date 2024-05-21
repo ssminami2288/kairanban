@@ -24,6 +24,11 @@
       <% end %>
     </div>
   <% end %>
+  <div class="image-container">
+    <% @post.images.each do |image| %>
+      <%= image_tag image %>
+    <% end %>
+  </div>
   <div>
     <%= form.label :pdfs, 'ファイルを添付' %>
   </div>
