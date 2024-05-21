@@ -796,6 +796,10 @@ h1 a:hover {
 	margin: 10px;
 }
 
+.attached-files div {
+  margin-bottom: 5px; /* 保持しているファイル名を縦並びにする */
+}
+
 @media only screen and (max-width: 600px) {
 	h3 {
 	font-size: 22.3px;		/*文字サイズ*/

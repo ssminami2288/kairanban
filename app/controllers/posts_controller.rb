@@ -42,25 +42,22 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
-    # フォームから送信されたパラメーターでファイルが空であるかをチェック
+    Rails.logger.debug "Params: #{params.inspect}"
+    Rails.logger.debug "Post params: #{post_params.inspect}"
     if params[:post][:pdfs].blank?
-      # ファイルが空の場合、現在のファイルを保持したまま更新処理を行う
       if @post.update(post_params.except(:pdfs))
-        redirect_to post_path(@post), notice: '投稿が更新されました'
+        redirect_to post_path(@post)
       else
         render :edit, status: :unprocessable_entity
       end
     else
-      # ファイルが含まれている場合は通常の更新処理を行う
       if @post.update(post_params)
-        redirect_to post_path(@post), notice: '投稿が更新されました'
+        redirect_to post_path(@post)
       else
         render :edit, status: :unprocessable_entity
       end
     end
   end
-  
 
   def destroy
     @post.destroy
