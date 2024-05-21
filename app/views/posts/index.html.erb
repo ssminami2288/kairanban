@@ -11,45 +11,54 @@
 </head>
 
 <body>
-  <%= render "devise/shared/header" %>
+  <div class="wrapper">
+    <%= render "devise/shared/header" %>
 
-  <main>
-    <div id="container">
-    <div id="contents">
-    <br>
-    <div class="wrapper">
-      <h2>お知らせ</h2>
+    <main>
+      <div id="container">
+      <div id="contents">
       <br>
-      <div class="meeting">
-        <% if current_user&.admin? %>
-          <%= form_for @meeting, url: meetings_path do |form| %>
-            <div>
-              <%= form.label :date, '次回の理事会の日程', class: 'nittei' %>
-              <%= form.date_field :date %>
-            </div>
-            <br>
-            <div>
-              <%= form.submit '設定', class: 'btn btn-danger' %>
-            </div>
-          <% end %>
-        <% end %>
+      <div class="wrapper">
+        <h2>お知らせ</h2>
         <br>
-        <div class="meeting-day">
-          <% @meeting = Meeting.last %>
-            <% if @meeting&.date.present? %>
-              次回の理事会は<%= @meeting.date.strftime('%Y年%m月%d日') %>です。
-          <% else %>
-            次回の理事会は未定です。
-              <% end %>
+        <div class="meeting">
+          <% if current_user&.admin? %>
+            <%= form_for @meeting, url: meetings_path do |form| %>
+              <div>
+                <%= form.label :date, '次回の理事会の日程', class: 'nittei' %>
+                <%= form.date_field :date %>
+              </div>
+              <br>
+              <div>
+                <%= form.submit '設定', class: 'btn btn-danger' %>
+              </div>
+            <% end %>
+          <% end %>
+          <br>
+          <div class="meeting-day">
+            <% @meeting = Meeting.last %>
+              <% if @meeting&.date.present? %>
+                次回の理事会は<%= @meeting.date.strftime('%Y年%m月%d日') %>です。
+            <% else %>
+              次回の理事会は未定です。
+                <% end %>
+              </div>
             </div>
           </div>
+          <br>
         </div>
-        <br>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <%= render "devise/shared/footer" %>
+    <%= render "devise/shared/footer" %>
+  </div>
+
+  <!--ページの上部へ戻るボタン-->
+  <div class="pagetop">
+    <a href="#"><i class="fas fa-angle-double-up"></i></a>
+  </div>
+
+  <!--jQueryの読み込み-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
-
 </html>
