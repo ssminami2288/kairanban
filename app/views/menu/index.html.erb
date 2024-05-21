@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>回覧板</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
-<link rel="stylesheets" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>回覧板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <link rel="stylesheets" href="style.css">
+  </head>
 
-<body>
-  <%= render "devise/shared/header" %>
+  <body>
+    <%= render "devise/shared/header" %>
 
-  <main>
-    <div id="container">
-      <div id="contents">
-        <br>
-        <div class="wrapper">
-          <h2>バックナンバー</h2>
+    <main>
+      <div id="container">
+        <div id="contents">
           <br>
-          <div class="backnumber">
-            <% @posts.each do |post| %>
-              <% unless post == @posts.first %>
-                <div>
-                  <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
-                  <div class="bh3"><%= link_to post.title, post_path(post) %></div>
-                </div>
-                <br>
+          <div class="wrapper">
+            <h2>バックナンバー</h2>
+            <br>
+            <div class="backnumber">
+              <% @posts.each do |post| %>
+                <% unless post == @posts.first %>
+                  <div>
+                    <div class="b-date"><%= post.date.strftime('%Y年%m月%d日') %></div>
+                    <div class="bh3"><%= link_to post.title, post_path(post) %></div>
+                  </div>
+                  <br>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
-        <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
-        <br>
-     </div>
-    </div>
-  </main>
-
-  <!--/#contents-->
-
-  <%= render "devise/shared/footer" %>
-</body>
-
+          <div class="guidance">1年経過した場合には、内容が自動的に削除されます。以前の内容をご確認になりたい方は、管理人様までお問い合わせください。</div>
+          <br>
+      </div>
+      </div>
+    </main>
+    <%= render "devise/shared/footer" %>
+  </body>
 </html>
