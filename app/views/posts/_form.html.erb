@@ -16,30 +16,21 @@
   <br>
   <% if @post.pdfs.attached? %>
     <div class="attached-files">
-      <% @post.pdfs.each do |pdf| %>
-        <div>
-          <%= link_to pdf.filename, rails_blob_path(pdf, disposition: "attachment") %>
-          <%= form.hidden_field :existing_pdfs, value: pdf.signed_id %>
-          <%= button_to "削除", delete_pdf_post_path(@post, pdf_id: pdf.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-        </div>
-      <% end %>
-    </div>
+  <% @post.pdfs.each do |pdf| %>
     <div>
-      <%= form.label :pdfs, 'ファイルを変更する' %>
+      <%= check_box_tag "ファイルを削除する", pdf.id %>
+      <%= pdf.filename %>
     </div>
-    <div class="file-group">
-      <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf' %>
-    </div>
-    <br>
-  <% else %>
-    <div>
-      <%= form.label :pdfs, 'ファイルを添付' %>
-    </div>
-    <div class="file-group">
-      <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf' %>
-    </div>
-    <br>
   <% end %>
+
+  <div>
+    <%= form.label :pdfs, 'ファイルを添付' %>
+  </div>
+  <div class="file-group">
+    <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf' %>
+  </div>
+  <br>
+
   <div class="submit-button-container">
     <%= form.submit submit_button_text, class: 'submit-button' %>
   </div>
