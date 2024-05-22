@@ -39,23 +39,10 @@ class PostsController < ApplicationController
 
 
   def update
-    @post = Post.find(params[:id])
-    
-    existing_pdfs = params[:post][:existing_pdfs] || []
-  
     if @post.update(post_params)
-      params[:post][:pdfs].each do |file|
-        @post.pdfs.attach(file)
-      end
-  
-      existing_pdfs.each do |signed_id|
-        blob = ActiveStorage::Blob.find_signed(signed_id)
-        @post.pdfs.attach(blob)
-      end
-  
-      redirect_to @post, notice: '更新しました。'
+      redirect_to post_path(@post.id)
     else
-      render :edit
+      render action: :edit, status: :unprocessable_entity
     end
   end
 
@@ -86,7 +73,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:date, :title, :text, pdfs: [])
+    params.require(:post).permit(:date, :title, :text, pdfs:)
   end
 
   def set_posts
