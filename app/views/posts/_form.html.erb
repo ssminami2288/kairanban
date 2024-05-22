@@ -16,10 +16,12 @@
   <br>
   <% if @post.pdfs.attached? %>
     <div class="attached-files">
-  <% @post.pdfs.each do |pdf| %>
-    <div>
-      <%= check_box_tag "ファイルを削除する", pdf.id %>
-      <%= pdf.filename %>
+      <% @post.pdfs.each do |pdf| %>
+        <div>
+          <%= check_box_tag "ファルを消す", pdf.id %>
+          <%= pdf.filename %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 
