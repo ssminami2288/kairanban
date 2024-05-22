@@ -13,7 +13,25 @@
     <%= form.label :text, '内容' %>
     <%= form.text_area :text %>
   </div>
-  <div class="submit-button-container">
+  <br>
+  <% if @post.pdfs.attached? %>
+    <div class="attached-files">
+      <% @post.pdfs.each do |pdf| %>
+        <div>
+          <%= form.hidden_field :existing_pdfs, value: pdf.signed_id %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <%= form.label :pdfs, 'ファイルを添付' %>
+    </div>
+    <div class="file-group">
+      <%= form.file_field :pdfs, multiple: true, accept: 'application/pdf' %>
+    </div>
+    <br>
+  <% end %>
+    <div class="submit-button-container">
     <%= form.submit submit_button_text, class: 'submit-button' %>
   </div>
 <% end %>
