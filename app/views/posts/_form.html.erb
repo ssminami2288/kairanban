@@ -19,7 +19,7 @@
       <% @post.pdfs.each do |pdf| %>
         <div>
           <%= link_to pdf.filename, rails_blob_path(pdf, disposition: "attachment") %>
-          <%= form.hidden_field :existing_pdfs, multiple: true, value: pdf.signed_id %>
+          <%= form.hidden_field :existing_pdfs, value: pdf.signed_id %>
         </div>
       <% end %>
     </div>
