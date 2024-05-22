@@ -63,9 +63,9 @@ class PostsController < ApplicationController
 
   def delete_pdf
     @post = Post.find(params[:id])
-    pdf = @post.pdfs.find(params[:pdf_id])
-    pdf.purge
-    redirect_back(fallback_location: root_path)
+    @pdf = @post.pdfs.find(params[:pdf_id])
+    @pdf.purge
+    redirect_to edit_post_path(@post)
   end
   
 

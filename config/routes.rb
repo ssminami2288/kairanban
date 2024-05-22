@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :posts do
     get :menu, on: :collection
     member do
-      delete 'delete_pdf/:pdf_id', to: 'posts#delete_pdf', as: 'delete_pdf'
+      delete 'delete_pdf'
     end
   end
   
