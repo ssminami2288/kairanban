@@ -61,6 +61,13 @@ class PostsController < ApplicationController
     @old_posts = Post.order(created_at: :asc).where('created_at < ?', Time.now - 1.day)
   end
 
+  def delete_pdf
+    @post = Post.find(params[:id])
+    pdf = @post.pdfs.find(params[:pdf_id])
+    pdf.purge
+    redirect_back(fallback_location: root_path)
+  end
+end
   
 
   private
