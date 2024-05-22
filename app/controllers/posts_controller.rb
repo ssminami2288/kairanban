@@ -31,7 +31,6 @@ class PostsController < ApplicationController
           old_post.update(archived: true)
         end
       end
-      # リダイレクトの制御
       redirect_to post_path(@post), notice: '投稿が作成されました。'
     else
       render :new
@@ -43,12 +42,24 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     Rails.logger.debug "Params: #{params.inspect}"
     Rails.logger.debug "Post params: #{post_params.inspect}"
+  
     if params[:post][:pdfs].blank?
       existing_pdfs = params[:post][:existing_pdfs]
-      if @post.update(post_params.except(:pdfs))
-        @post.pdfs.attach(existing_pdfs.map { |signed_id| ActiveStorage::Blob.find_signed(signed_id) })
-        redirect_to post_path(@post)
+      Rails.logger.debug "Existing PDFs: #{existing_pdfs.inspect}"
+  
+      if existing_pdfs
+        if @post.update(post_params.except(:pdfs))
+          existing_pdfs.each do |signed_id|
+            blob = ActiveStorage::Blob.find_signed(signed_id)
+            Rails.logger.debug "Attaching blob: #{blob.inspect}"
+            @post.pdfs.attach(blob)
+          end
+          redirect_to post_path(@post)
+        else
+          render :edit, status: :unprocessable_entity
+        end
       else
+        Rails.logger.error "No existing PDFs provided"
         render :edit, status: :unprocessable_entity
       end
     else
@@ -87,7 +98,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, pdfs: [], existing_pdfs: [])
+    params.require(:post).permit(:date, :title, :text, pdfs: [], existing_pdfs: [])
   end
 
   def set_posts
