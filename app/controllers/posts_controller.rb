@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     Rails.logger.debug "Params: #{params.inspect}"
     Rails.logger.debug "Post params: #{post_params.inspect}"
-    if params[:post][:pdfs].blank? && @post.pdfs.attached?
+    if params[:post][:pdfs].blank?
       existing_pdfs = params[:post][:existing_pdfs]
       if @post.update(post_params.except(:pdfs))
         @post.pdfs.attach(existing_pdfs.map { |signed_id| ActiveStorage::Blob.find_signed(signed_id) })
