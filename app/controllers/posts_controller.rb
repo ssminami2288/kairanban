@@ -87,7 +87,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:date, :title, :text, pdfs: [])
+    params.require(:post).permit(:title, :content, pdfs: [], existing_pdfs: [])
   end
 
   def set_posts
