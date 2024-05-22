@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    get :menu, on: :collection
     member do
       delete 'delete_pdf'
     end
   end
+  get :menu, to: 'posts#menu', on: :collection
   
   resources :stamps, only: [:create]
   resources :meetings, only: [:create]
