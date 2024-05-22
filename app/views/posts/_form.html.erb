@@ -20,7 +20,7 @@
         <div>
           <%= link_to pdf.filename, rails_blob_path(pdf, disposition: "attachment") %>
           <%= form.hidden_field :existing_pdfs, value: pdf.signed_id %>
-          <%= button_to "削除", delete_pdf_path(pdf_id: pdf.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <%= button_to "削除", delete_pdf_post_path(@post, pdf_id: pdf.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
         </div>
       <% end %>
     </div>
