@@ -40,32 +40,22 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    Rails.logger.debug "Params: #{params.inspect}"
-    Rails.logger.debug "Post params: #{post_params.inspect}"
+    
+    existing_pdfs = params[:post][:existing_pdfs] || []
   
-    if params[:post][:pdfs].blank?
-      existing_pdfs = params[:post][:existing_pdfs]
-      Rails.logger.debug "Existing PDFs: #{existing_pdfs.inspect}"
-  
-      if @post.update(post_params.except(:pdfs))
-        if existing_pdfs
-          @post.pdfs.detach
-          existing_pdfs.each do |signed_id|
-            blob = ActiveStorage::Blob.find_signed(signed_id)
-            Rails.logger.debug "Attaching blob: #{blob.inspect}"
-            @post.pdfs.attach(blob)
-          end
-        end
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
+    if @post.update(post_params)
+      params[:post][:pdfs].each do |file|
+        @post.pdfs.attach(file)
       end
+  
+      existing_pdfs.each do |signed_id|
+        blob = ActiveStorage::Blob.find_signed(signed_id)
+        @post.pdfs.attach(blob)
+      end
+  
+      redirect_to @post, notice: '更新しました。'
     else
-      if @post.update(post_params)
-        redirect_to post_path(@post)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      render :edit
     end
   end
 
