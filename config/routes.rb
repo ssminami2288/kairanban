@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :menu, on: :collection
-    delete 'delete_pdf', on: :member
+    member do
+      delete 'delete_pdf/:pdf_id', to: 'posts#delete_pdf', as: 'delete_pdf'
+    end
   end
   
   resources :stamps, only: [:create]
