@@ -47,19 +47,17 @@ class PostsController < ApplicationController
       existing_pdfs = params[:post][:existing_pdfs]
       Rails.logger.debug "Existing PDFs: #{existing_pdfs.inspect}"
   
-      if existing_pdfs
-        if @post.update(post_params.except(:pdfs))
+      if @post.update(post_params.except(:pdfs))
+        if existing_pdfs
+          @post.pdfs.detach
           existing_pdfs.each do |signed_id|
             blob = ActiveStorage::Blob.find_signed(signed_id)
             Rails.logger.debug "Attaching blob: #{blob.inspect}"
             @post.pdfs.attach(blob)
           end
-          redirect_to post_path(@post)
-        else
-          render :edit, status: :unprocessable_entity
         end
+        redirect_to post_path(@post)
       else
-        Rails.logger.error "No existing PDFs provided"
         render :edit, status: :unprocessable_entity
       end
     else
@@ -90,7 +88,6 @@ class PostsController < ApplicationController
   private
 
   def authenticate_admin!
-    # 現在のユーザーが管理人であるかどうかを確認
     return if current_user&.admin?
 
     flash[:alert] = '管理人のみアクセスできます。'
